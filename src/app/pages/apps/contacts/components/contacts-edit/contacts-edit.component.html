@@ -1,0 +1,85 @@
+<form (ngSubmit)="save()" [formGroup]="form">
+  <div fxLayout="row" fxLayoutAlign="start center" mat-dialog-title>
+    <img *ngIf="contact?.imageSrc" [src]="contact?.imageSrc" class="avatar ltr:mr-5 rtl:ml-5">
+    <h2 class="headline m-0" fxFlex="auto">{{ form.get('name').value || 'New Contact' }}</h2>
+
+    <button (click)="toggleStar()" class="text-secondary" mat-icon-button type="button">
+      <mat-icon *ngIf="contact?.starred" [icIcon]="icStar" class="text-amber-500"></mat-icon>
+      <mat-icon *ngIf="!contact?.starred" [icIcon]="icStarBorder"></mat-icon>
+    </button>
+
+    <button [matMenuTriggerFor]="settingsMenu" class="text-secondary" mat-icon-button type="button">
+      <mat-icon [icIcon]="icMoreVert"></mat-icon>
+    </button>
+
+    <button class="text-secondary" mat-dialog-close mat-icon-button type="button">
+      <mat-icon [icIcon]="icClose"></mat-icon>
+    </button>
+  </div>
+
+  <mat-divider class="-mx-6 text-border"></mat-divider>
+
+  <mat-dialog-content fxLayout="column">
+    <mat-form-field class="mt-6">
+      <mat-label>Name</mat-label>
+      <input cdkFocusInitial formControlName="name" matInput>
+
+      <mat-icon [icIcon]="icPerson" class="ltr:mr-3 rtl:ml-3" matPrefix></mat-icon>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Phone</mat-label>
+      <input formControlName="phone" matInput>
+
+      <mat-icon [icIcon]="icPhone" class="ltr:mr-3 rtl:ml-3" matPrefix></mat-icon>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>E-Mail</mat-label>
+      <input formControlName="email" matInput>
+
+      <mat-icon [icIcon]="icEmail" class="ltr:mr-3 rtl:ml-3" matPrefix></mat-icon>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Company</mat-label>
+      <input formControlName="company" matInput>
+
+      <mat-icon [icIcon]="icBusiness" class="ltr:mr-3 rtl:ml-3" matPrefix></mat-icon>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Birthday</mat-label>
+      <input [matDatepicker]="datepickerRef" formControlName="birthday" matInput>
+      <mat-datepicker-toggle [for]="datepickerRef" class="block" matPrefix></mat-datepicker-toggle>
+      <mat-datepicker #datepickerRef></mat-datepicker>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Notes</mat-label>
+      <textarea formControlName="notes" matInput></textarea>
+    </mat-form-field>
+  </mat-dialog-content>
+
+  <mat-dialog-actions align="end">
+    <button mat-button mat-dialog-close type="button">CANCEL</button>
+    <button color="primary" mat-button type="submit">SAVE CHANGES</button>
+  </mat-dialog-actions>
+</form>
+
+<mat-menu #settingsMenu="matMenu" xPosition="before" yPosition="below">
+  <button mat-menu-item>
+    <mat-icon [icIcon]="icPrint"></mat-icon>
+    <span>Print</span>
+  </button>
+
+  <button mat-menu-item>
+    <mat-icon [icIcon]="icDownload"></mat-icon>
+    <span>Export</span>
+  </button>
+
+  <button mat-menu-item>
+    <mat-icon [icIcon]="icDelete"></mat-icon>
+    <span>Delete</span>
+  </button>
+</mat-menu>

@@ -1,0 +1,81 @@
+<div class="card" fxLayout="column" fxLayout.gt-sm="row">
+  <div class="p-6">
+    <mat-list class="card max-w-full overflow-hidden w-300">
+      <h3 mat-subheader>Contacts</h3>
+      <mat-list-item>
+        <img mat-list-avatar src="assets/img/avatars/1.jpg">
+        <h3 matLine>John</h3>
+        <p matLine>
+          <span>Brunch?</span>
+          <span class="text-secondary">-- Did you want to go on Sunday? I was thinking</span>
+        </p>
+      </mat-list-item>
+      <mat-list-item>
+        <img mat-list-avatar src="assets/img/avatars/2.jpg">
+        <h3 matLine>Peter</h3>
+        <p matLine>
+          <span>Summer BBQ</span>
+          <span class="text-secondary">-- Wish I could come, but I have some special</span>
+        </p>
+      </mat-list-item>
+      <mat-list-item>
+        <img mat-list-avatar src="assets/img/avatars/3.jpg">
+        <h3 matLine>Nancy</h3>
+        <p matLine>
+          <span>Oui oui</span>
+          <span class="text-secondary">-- Have you booked the Paris trip?</span>
+        </p>
+      </mat-list-item>
+      <mat-divider></mat-divider>
+      <h3 mat-subheader>Other</h3>
+      <mat-list-item>
+        <img mat-list-avatar src="assets/img/avatars/4.jpg">
+        <h3 matLine>Frank</h3>
+        <p matLine>
+          <span>Pretty decent!</span>
+          <span class="text-secondary">-- You look pretty... decent!</span>
+        </p>
+      </mat-list-item>
+      <mat-list-item>
+        <img mat-list-avatar src="assets/img/avatars/5.jpg">
+        <h3 matLine>Donald</h3>
+        <p matLine>
+          <span>That's great!</span>
+          <span class="text-secondary">-- Great work mate!</span>
+        </p>
+      </mat-list-item>
+    </mat-list>
+  </div>
+
+  <div class="border-l" fxFlex>
+    <div class="p-6">
+      <h2 class="title mt-0 mb-4">Lists</h2>
+      <h4 class="body-2 text-secondary m-0">&lt;mat-list&gt;</h4>
+    </div>
+
+    <mat-tab-group class="vex-tabs">
+      <mat-tab label="DESCRIPTION">
+        <p class="p-6">
+          Lists are made up of a continuous column of rows. Each row contains a tile. Primary actions fill the tile, and
+          supplemental actions are represented by icons and text.
+          <br>
+          <br>Lists are best suited to presenting a homogeneous data type or sets of data types, such as images and
+          text. They are optimized for reading comprehension while differentiating either between similar data types, or
+          qualities within a single data type.
+          <br>
+          <br><span class="semi-bold">List alternatives:</span>
+          <br>If more than three lines of text need to be shown in list tiles, use cards instead
+          <br>If the primary distinguishing content consists of images, use a grid list
+          <br>
+          <br><span class="semi-bold">Density</span>
+          <br>When the mouse and keyboard are the primary input methods, measurements may be condensed to accommodate
+          denser layouts.
+        </p>
+      </mat-tab>
+      <mat-tab label="SOURCE CODE">
+        <pre><code [vexHighlight]="listHTML"></code></pre>
+      </mat-tab>
+    </mat-tab-group>
+  </div>
+</div>
+

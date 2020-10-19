@@ -1,0 +1,73 @@
+::ng-deep vex-changelog {
+
+  vex-secondary-toolbar {
+    h1, h2 {
+      border: none;
+      margin: 0;
+    }
+  }
+
+  showdown {
+    a {
+      @apply text-primary-500;
+    }
+  }
+
+  showdown > *:first-child {
+    margin-top: 0 !important
+  }
+
+  h1, h2 {
+    border-bottom: 1px solid var(--foreground-divider);
+    padding-bottom: .3em;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-weight: var(--font-weight-medium) !important;
+    margin-bottom: var(--padding-16);
+    margin-top: 32px;
+  }
+
+  p, ul, li {
+    font-size: 15px !important;
+    line-height: 1.5 !important;
+  }
+
+  strong {
+    font-weight: 500;
+  }
+
+  code.typescript {
+    display: block;
+  }
+
+  table {
+    border: 1px solid var(--foreground-divider);
+    border-collapse: collapse;
+    border-spacing: 0;
+    font-size: 15px;
+
+    tr {
+      background-color: var(--background-card);
+      border-top: 1px solid var(--foreground-divider);
+
+      &:nth-child(2n) {
+        background-color: var(--background-app-bar);
+      }
+    }
+
+    td, th {
+      border-left: 1px solid var(--foreground-divider);
+      padding: var(--padding-12) var(--padding-16);
+
+      &:first-child {
+        border-left: none;
+      }
+    }
+
+    th {
+      font-weight: var(--font-weight-medium);
+    }
+
+  }
+}

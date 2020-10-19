@@ -1,0 +1,99 @@
+<div @stagger>
+  <div class="bg-card py-16 px-gutter">
+    <h1 @fadeInUp class="display-2 mt-0 mb-4 text-center">Pricing & Plans</h1>
+    <h2 @fadeInUp class="subheading-2 text-hint text-center max-w-lg mx-auto m-0">Simple, transparent pricing.</h2>
+  </div>
+
+  <div class="my-12 container"
+       fxLayout="row"
+       fxLayout.xs="column"
+       fxLayoutAlign="start start"
+       fxLayoutAlign.xs="start stretch"
+       fxLayoutGap="24px">
+
+    <div @fadeInUp class="card p-6" fxFlex fxLayout="column" fxLayoutAlign="start center">
+      <div [style.background-color]="theme.colors.primary['500'] | colorFade:0.9"
+           class="inline-block p-6 rounded-full text-primary-500 mx-auto"
+           fxLayout="row"
+           fxLayoutAlign="center center">
+        <ic-icon [icon]="icBeenhere" size="48px"></ic-icon>
+      </div>
+
+      <h2 class="headline my-6">Basic Plan</h2>
+
+      <div class="body-1"><span class="body-2">2</span> Users</div>
+      <div class="body-1"><span class="body-2">10</span> Projects</div>
+      <div class="body-1"><span class="body-2">10GB</span> Storage</div>
+      <div class="body-1"><span class="body-2">Basic</span> Support</div>
+
+      <h3 class="display-2 font-bold my-6">19<span class="text-secondary headline align-top">$</span></h3>
+
+      <button class="rounded-full max-w-full w-200" color="primary" mat-raised-button type="button">PURCHASE</button>
+    </div>
+
+    <div @fadeInUp class="card p-6" fxFlex fxLayout="column" fxLayoutAlign="start center">
+      <div [style.background-color]="theme.colors.primary['500'] | colorFade:0.9"
+           class="inline-block p-6 rounded-full text-primary-500 mx-auto"
+           fxLayout="row"
+           fxLayoutAlign="center center">
+        <ic-icon [icon]="icStars" size="48px"></ic-icon>
+      </div>
+
+      <h2 class="headline my-6">Premium Plan</h2>
+
+      <div class="body-1"><span class="body-2">10</span> Users</div>
+      <div class="body-1"><span class="body-2">500</span> Projects</div>
+      <div class="body-1"><span class="body-2">1TB</span> Storage</div>
+      <div class="body-1"><span class="body-2">Priority</span> Support</div>
+
+      <h3 class="display-2 font-bold my-6">59<span class="text-secondary headline align-top">$</span></h3>
+
+      <button class="rounded-full max-w-full w-200" color="primary" mat-raised-button type="button">PURCHASE</button>
+    </div>
+
+    <div @fadeInUp class="card p-6" fxFlex fxLayout="column" fxLayoutAlign="start center">
+      <div [style.background-color]="theme.colors.primary['500'] | colorFade:0.9"
+           class="inline-block p-6 rounded-full text-primary-500 mx-auto"
+           fxLayout="row"
+           fxLayoutAlign="center center">
+        <ic-icon [icon]="icBusinessCenter" size="48px"></ic-icon>
+      </div>
+
+      <h2 class="headline my-6">Enterprise Plan</h2>
+
+      <div class="body-1"><span class="body-2">Unlimited</span> Users</div>
+      <div class="body-1"><span class="body-2">Unlimited</span> Projects</div>
+      <div class="body-1"><span class="body-2">Unlimited</span> Storage</div>
+      <div class="body-1"><span class="body-2">Dedicated</span> Support</div>
+
+      <h3 class="display-2 font-bold my-6">699<span class="text-secondary headline align-top">$</span></h3>
+
+      <button class="rounded-full max-w-full w-200" color="primary" mat-raised-button type="button">PURCHASE</button>
+    </div>
+
+  </div>
+
+  <div @fadeInUp class="bg-card py-16 px-gutter footer">
+    <h2 class="display-1 mt-0 mb-4 text-center">Still have questions?</h2>
+    <h3 class="subheading-2 text-hint text-center max-w-lg mx-auto m-0">A wonderful serenity has taken possession of my
+      entire
+      soul, like these sweet
+      mornings of spring which I enjoy with my whole heart.</h3>
+
+    <div class="mt-16 max-w-3xl mx-auto flex flex-col md:flex-row">
+      <a class="text-center p-6 border rounded md:w-1/2 md:mx-2"
+         routerLinkActive>
+        <ic-icon [icon]="icPhoneInTalk" class="text-hint" size="42px"></ic-icon>
+        <h3 class="title mb-0 mt-4">+1 (840) 423-3404</h3>
+        <h4 class="subheading-2 m-0 text-hint">Call us anytime for a quick solution</h4>
+      </a>
+
+      <a class="text-center p-6 border rounded md:w-1/2 md:mx-2"
+         routerLinkActive>
+        <ic-icon [icon]="icMail" class="text-hint" size="42px"></ic-icon>
+        <h3 class="title mb-0 mt-4">support@example.com</h3>
+        <h4 class="subheading-2 m-0 text-hint">Send us a mail to resolve your issue</h4>
+      </a>
+    </div>
+  </div>
+</div>

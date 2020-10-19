@@ -1,0 +1,12 @@
+<div #originRef
+     (click)="showPopover(originRef)"
+     [class.bg-hover]="dropdownOpen"
+     class="flex items-center rounded cursor-pointer relative trans-ease-out select-none py-1 pr-1 pl-3 hover:bg-hover"
+     matRipple>
+  <div class="body-1 font-medium leading-snug ltr:mr-3 rtl:ml-3" fxHide.xs>David Smith</div>
+  <div [style.background-color]="theme.colors.primary['500'] | colorFade:0.9"
+       [style.color]="theme.colors.primary['500']"
+       class="rounded-full h-9 w-9 flex items-center justify-center">
+    <mat-icon [icIcon]="icPerson"></mat-icon>
+  </div>
+</div>

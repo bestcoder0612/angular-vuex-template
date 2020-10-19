@@ -1,0 +1,89 @@
+<vex-page-layout mode="simple">
+  <vex-page-layout-header fxLayout="column" fxLayoutAlign="center start">
+    <div vexContainer>
+      <h1 class="title mt-0 mb-1">Components</h1>
+      <vex-breadcrumbs [crumbs]="['Components', 'Overview']"></vex-breadcrumbs>
+    </div>
+  </vex-page-layout-header>
+
+  <vex-page-layout-content fxLayout="row" fxLayoutAlign="start start" fxLayoutGap="24px" vexContainer>
+    <div @stagger
+         [fxFlex]="menuWidth"
+         class="sticky top-6"
+         fxHide
+         fxLayout="column"
+         fxShow.gt-sm>
+      <mat-list class="navigation" fxFlex="grow">
+        <h3 @fadeInRight matSubheader>Components</h3>
+        <mat-list-item (click)="scrollTo('autocomplete')" @fadeInRight class="cursor-pointer" matRipple>
+          <h4 matLine>Autocomplete</h4>
+        </mat-list-item>
+        <mat-list-item (click)="scrollTo('buttons')" @fadeInRight class="cursor-pointer" matRipple>
+          <h4 matLine>Buttons</h4>
+        </mat-list-item>
+        <mat-list-item (click)="scrollTo('cards')" @fadeInRight class="cursor-pointer" matRipple>
+          <h4 matLine>Cards</h4>
+        </mat-list-item>
+        <mat-list-item (click)="scrollTo('checkbox')" @fadeInRight class="cursor-pointer" matRipple>
+          <h4 matLine>Checkbox</h4>
+        </mat-list-item>
+        <mat-list-item (click)="scrollTo('dialogs')" @fadeInRight class="cursor-pointer" matRipple>
+          <h4 matLine>Dialog</h4>
+        </mat-list-item>
+        <mat-list-item (click)="scrollTo('gridList')" @fadeInRight class="cursor-pointer" matRipple>
+          <h4 matLine>Grid List</h4>
+        </mat-list-item>
+        <mat-list-item (click)="scrollTo('input')" @fadeInRight class="cursor-pointer" matRipple>
+          <h4 matLine>Input</h4>
+        </mat-list-item>
+        <mat-list-item (click)="scrollTo('lists')" @fadeInRight class="cursor-pointer" matRipple>
+          <h4 matLine>List</h4>
+        </mat-list-item>
+        <mat-list-item (click)="scrollTo('menu')" @fadeInRight class="cursor-pointer" matRipple>
+          <h4 matLine>Menu</h4>
+        </mat-list-item>
+        <mat-list-item (click)="scrollTo('progress')" @fadeInRight class="cursor-pointer" matRipple>
+          <h4 matLine>Progress</h4>
+        </mat-list-item>
+        <mat-list-item (click)="scrollTo('progressSpinner')" @fadeInRight class="cursor-pointer" matRipple>
+          <h4 matLine>Progress Spinner</h4>
+        </mat-list-item>
+        <mat-list-item (click)="scrollTo('radio')" @fadeInRight class="cursor-pointer" matRipple>
+          <h4 matLine>Radio</h4>
+        </mat-list-item>
+        <mat-list-item (click)="scrollTo('slider')" @fadeInRight class="cursor-pointer" matRipple>
+          <h4 matLine>Slider</h4>
+        </mat-list-item>
+        <mat-list-item (click)="scrollTo('slideToggle')" @fadeInRight class="cursor-pointer" matRipple>
+          <h4 matLine>Slide Toggle</h4>
+        </mat-list-item>
+        <mat-list-item (click)="scrollTo('snackBar')" @fadeInRight class="cursor-pointer" matRipple>
+          <h4 matLine>Snack Bar</h4>
+        </mat-list-item>
+        <mat-list-item (click)="scrollTo('tooltip')" @fadeInRight class="cursor-pointer" matRipple>
+          <h4 matLine>Tooltip</h4>
+        </mat-list-item>
+      </mat-list>
+    </div>
+
+    <div @stagger class="max-w-full" fxLayout="column" fxLayoutGap="24px">
+      <vex-components-overview-autocomplete @fadeInUp></vex-components-overview-autocomplete>
+      <vex-components-overview-buttons @fadeInUp></vex-components-overview-buttons>
+      <vex-components-overview-cards @fadeInUp></vex-components-overview-cards>
+      <vex-components-overview-checkbox @fadeInUp></vex-components-overview-checkbox>
+      <vex-components-overview-dialogs @fadeInUp></vex-components-overview-dialogs>
+      <vex-components-overview-grid-list @fadeInUp></vex-components-overview-grid-list>
+      <vex-components-overview-input @fadeInUp></vex-components-overview-input>
+      <vex-components-overview-lists @fadeInUp></vex-components-overview-lists>
+      <vex-components-overview-menu @fadeInUp></vex-components-overview-menu>
+      <vex-components-overview-progress @fadeInUp></vex-components-overview-progress>
+      <vex-components-overview-progress-spinner @fadeInUp></vex-components-overview-progress-spinner>
+      <vex-components-overview-radio @fadeInUp></vex-components-overview-radio>
+      <vex-components-overview-slider @fadeInUp></vex-components-overview-slider>
+      <vex-components-overview-slide-toggle @fadeInUp></vex-components-overview-slide-toggle>
+      <vex-components-overview-snack-bar @fadeInUp></vex-components-overview-snack-bar>
+      <vex-components-overview-tooltip @fadeInUp></vex-components-overview-tooltip>
+    </div>
+  </vex-page-layout-content>
+</vex-page-layout>
+

@@ -1,0 +1,71 @@
+::ng-deep {
+  .vex-style-dark {
+    vex-scrumboard {
+      .scrumboard-card:hover {
+        background: rgba(black, 0.5);
+      }
+    }
+  }
+}
+
+.scrumboard-card {
+  margin-bottom: var(--padding-16);
+
+  &:last-of-type {
+    margin-bottom: 0;
+  }
+
+  &:hover {
+    background: rgba(white, 0.5);
+  }
+
+  .label {
+    border-radius: 6px;
+    height: 6px;
+    max-width: 32px;
+  }
+
+  .box {
+    padding: 3px;
+
+    .box-text {
+      font-size: 11px;
+      font-weight: var(--font-weight-medium);
+      margin-left: 3px;
+      margin-right: 3px;
+      vertical-align: bottom;
+    }
+  }
+}
+
+.avatar.overlapping {
+  border: 2px solid var(--background-card);
+  height: 23px;
+  margin-right: -8px;
+  width: 23px;
+
+  &:last-of-type {
+    margin-right: 0;
+  }
+}
+
+/*
+  Cdk Drag & Drop
+ */
+
+.cdk-drag-preview {
+  box-shadow: var(--elevation-z8);
+}
+
+.cdk-drag-placeholder {
+  opacity: 0.2;
+}
+
+.cdk-drop-list-dragging .scrumboard-card:not(.cdk-drag-placeholder) {
+  transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+.cdk-drag-animating {
+  transition: transform 250ms cubic-bezier(0, 0, 0.2, 1) !important;
+}
+

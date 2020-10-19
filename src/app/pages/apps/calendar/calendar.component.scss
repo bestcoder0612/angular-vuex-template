@@ -1,0 +1,9 @@
+@import '../../../../../node_modules/angular-calendar/css/angular-calendar.css';
+@import "../../../../@vex/styles/partials/plugins/_angular-calendar.scss";
+
+vex-calendar {
+  .calendar-bg {
+    background: url('/assets/img/demo/landscape.jpg') no-repeat center;
+    background-size: cover;
+  }
+}

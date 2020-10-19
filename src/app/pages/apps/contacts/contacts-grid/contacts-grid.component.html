@@ -1,0 +1,103 @@
+<div class="h-full" fxLayout="column">
+  <div class="p-6 pb-0 bg-card shadow-b" fxFlex="none">
+    <div vexContainer>
+      <h1 class="display-1 mt-0 mb-4" fxLayout="row" fxLayoutAlign="start center">
+      <span @scaleIn
+            [style.background-color]="theme.colors.primary['500'] | colorFade:0.9"
+            class="w-12 h-12 rounded-full text-primary-500 ltr:mr-4 rtl:ml-4 flex items-center justify-center">
+      <ic-icon [icon]="icContacts" size="24px"></ic-icon>
+      </span>
+        <span @fadeInRight class="block">Contacts</span>
+      </h1>
+
+      <div fxLayout="row" fxLayoutAlign="start center">
+        <nav class="vex-tabs border-0" fxFlex="auto" mat-tab-nav-bar>
+          <a #rla="routerLinkActive"
+             *ngFor="let link of links"
+             [active]="rla.isActive"
+             [disabled]="link.disabled"
+             [routerLink]="link.route"
+             mat-tab-link
+             routerLinkActive>
+            {{ link.label }}
+          </a>
+        </nav>
+
+        <button color="primary" fxFlex="none" fxHide.xs mat-icon-button matTooltip="Search Contacts" type="button">
+          <mat-icon [icIcon]="icSearch"></mat-icon>
+        </button>
+
+        <button class="ltr:ml-1 rtl:mr-1"
+                color="primary"
+                fxFlex="none"
+                fxHide.xs
+                mat-icon-button
+                matTooltip="Export Contacts"
+                type="button">
+          <mat-icon [icIcon]="icCloudDownload"></mat-icon>
+        </button>
+
+        <button class="ltr:ml-1 rtl:mr-1"
+                color="primary"
+                fxFlex="none"
+                mat-icon-button
+                matTooltip="Filter Contacts"
+                type="button">
+          <mat-icon [icIcon]="icFilterList"></mat-icon>
+        </button>
+
+        <button (click)="openContact()"
+                class="ltr:ml-1 rtl:mr-1"
+                color="primary"
+                fxFlex="none"
+                fxHide.gt-xs
+                mat-mini-fab
+                matTooltip="Add Contact"
+                type="button">
+          <mat-icon [icIcon]="icPersonAdd"></mat-icon>
+        </button>
+
+        <button (click)="openContact()"
+                class="ltr:ml-4 rtl:mr-4"
+                color="primary"
+                fxFlex="none"
+                fxHide.xs
+                mat-raised-button
+                type="button">
+          <ic-icon [icon]="icPersonAdd"
+                   class="ltr:mr-2 rtl:ml-2 ltr:-ml-1 rtl:-mr-1"
+                   inline="true"
+                   size="20px"></ic-icon>
+          <span>ADD CONTACT</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="(filteredContacts$ | async).length > 0"
+       @stagger
+       class="overflow-y-auto"
+       fxFlex="auto">
+    <div class="p-gutter"
+         vexContainer
+         gdColumns="1fr 1fr 1fr 1fr"
+         gdColumns.lt-md="1fr 1fr"
+         gdColumns.xs="1fr"
+         gdGap="24px">
+      <vex-contacts-card (openContact)="openContact($event)"
+                         (toggleStar)="toggleStar($event)"
+                         *ngFor="let contact of filteredContacts$ | async; trackBy: trackById"
+                         @fadeInUp
+                         [contact]="contact"></vex-contacts-card>
+    </div>
+  </div>
+
+  <div *ngIf="(filteredContacts$ | async).length === 0"
+       @scaleFadeIn
+       fxFlex="auto"
+       fxLayout="column"
+       fxLayoutAlign="center center">
+    <img class="m-12 h-64" src="assets/img/illustrations/idea.svg">
+    <h2 class="headline m-0 text-center">No contacts matching your filters</h2>
+  </div>
+</div>

@@ -1,0 +1,39 @@
+<div @fadeInUp class="card shadow-8 text-center w-full max-w-sm overflow-hidden">
+  <div class="p-6" fxLayout="column" fxLayoutAlign="start center">
+    <img class="w-16" src="assets/img/demo/logo.svg">
+  </div>
+
+  <h1 class="display-1 font-medium m-0">COMING SOON</h1>
+  <h3 class="title mt-3 mb-0">Our website is under construction.</h3>
+
+  <div class="my-6" fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="12px">
+    <a class="cursor-pointer">
+      <ic-icon [icon]="faFacebook" height="20px" width="20px"></ic-icon>
+    </a>
+    <a class="cursor-pointer">
+      <ic-icon [icon]="faTwitter" height="20px" width="20px"></ic-icon>
+    </a>
+    <a class="cursor-pointer">
+      <ic-icon [icon]="faInstagram" height="20px" width="20px"></ic-icon>
+    </a>
+    <a class="cursor-pointer">
+      <ic-icon [icon]="faPinterest" height="20px" width="20px"></ic-icon>
+    </a>
+    <a class="cursor-pointer">
+      <ic-icon [icon]="faGithub" height="20px" width="20px"></ic-icon>
+    </a>
+  </div>
+
+  <div class="bg-app-bar p-6" fxLayout="column">
+    <p class="mt-0 mb-4 font-medium">If you would like to get notified as soon as we launch, subscribe below and follow
+      us on socials!</p>
+
+    <mat-form-field>
+      <mat-label>E-Mail</mat-label>
+      <input matInput>
+      <mat-icon [icIcon]="icMail" matSuffix></mat-icon>
+    </mat-form-field>
+
+    <button color="primary" mat-raised-button type="button">SUBSCRIBE</button>
+  </div>
+</div>

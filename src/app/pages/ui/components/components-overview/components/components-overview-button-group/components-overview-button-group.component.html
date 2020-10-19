@@ -1,0 +1,67 @@
+<div class="card" fxLayout="column" fxLayout.gt-sm="row">
+  <div class="p-6">
+    <h2 class="title mt-0 mb-4">Preview</h2>
+
+    <div fxLayout="column" fxLayoutAlign="start center">
+
+      <mat-button-toggle-group>
+        <mat-button-toggle value="left">
+          <mat-icon [icIcon]="icFormatAlignLeft"></mat-icon>
+        </mat-button-toggle>
+        <mat-button-toggle value="center">
+          <mat-icon [icIcon]="icFormatAlignCenter"></mat-icon>
+        </mat-button-toggle>
+        <mat-button-toggle value="right">
+          <mat-icon [icIcon]="icFormatAlignRight"></mat-icon>
+        </mat-button-toggle>
+        <mat-button-toggle value="justify">
+          <mat-icon [icIcon]="icFormatAlignJustify"></mat-icon>
+        </mat-button-toggle>
+      </mat-button-toggle-group>
+
+      <mat-button-toggle-group class="mt-6">
+        <mat-button-toggle value="left">Left</mat-button-toggle>
+        <mat-button-toggle value="center">Center</mat-button-toggle>
+        <mat-button-toggle value="right">Right</mat-button-toggle>
+      </mat-button-toggle-group>
+
+      <mat-button-toggle-group appearance="legacy" class="mt-6">
+        <mat-button-toggle value="left">Left</mat-button-toggle>
+        <mat-button-toggle value="center">Center</mat-button-toggle>
+        <mat-button-toggle value="right">Right</mat-button-toggle>
+      </mat-button-toggle-group>
+
+      <mat-button-toggle-group class="mt-6" vertical>
+        <mat-button-toggle value="left">Top</mat-button-toggle>
+        <mat-button-toggle value="center">Center</mat-button-toggle>
+        <mat-button-toggle value="right">Bottom</mat-button-toggle>
+      </mat-button-toggle-group>
+    </div>
+  </div>
+
+  <div class="border-l" fxFlex>
+    <div class="p-6">
+      <h2 class="title mt-0 mb-4">Button Group</h2>
+      <h4 class="body-2 text-secondary m-0">&lt;mat-button-toggle-group&gt;</h4>
+    </div>
+
+    <mat-tab-group class="vex-tabs">
+      <mat-tab label="DESCRIPTION">
+        <div class="p-6">
+          <p>
+            Toggle buttons can be used to group related options. To emphasize groups of related toggle buttons, a group
+            should share a common container.
+          </p>
+          <h4 class="subheading-1 font-medium mb-0">Active and available toggle buttons:</h4>
+          <p>
+            A toggle button’s state makes it clear which button is active. Hover and focus states express the available
+            selection options for buttons in a toggle group.
+          </p>
+        </div>
+      </mat-tab>
+      <mat-tab label="SOURCE CODE">
+        <pre><code [vexHighlight]="buttonToggleHTML"></code></pre>
+      </mat-tab>
+    </mat-tab-group>
+  </div>
+</div>

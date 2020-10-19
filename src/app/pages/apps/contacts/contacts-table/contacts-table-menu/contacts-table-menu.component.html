@@ -1,0 +1,27 @@
+<div @stagger class="max-w-xxxs w-full">
+  <div class="h-14 mb-6 flex bg-primary-500 px-gutter sm:px-0" fxLayout="row" fxLayoutAlign="start center">
+    <button (click)="openAddNew.emit()" class="flex-auto" mat-raised-button type="button">
+      <ic-icon [icon]="icPersonAdd" class="ltr:mr-3 rtl:ml-3" inline="true" size="18px"></ic-icon>
+      <span>ADD CONTACT</span>
+    </button>
+  </div>
+
+  <div class="px-gutter sm:px-0">
+    <ng-container *ngFor="let item of items">
+      <a (click)="setFilter(item.id)"
+         *ngIf="item.type === 'link'"
+         @fadeInRight
+         [class.bg-hover]="isActive(item.id)"
+         [class.text-primary-500]="isActive(item.id)"
+         class="list-item mt-2 no-underline flex items-center"
+         matRipple>
+        <ic-icon [icon]="item.icon" [ngClass]="item.classes?.icon" class="ltr:mr-3 rtl:ml-3" size="24px"></ic-icon>
+        <span>{{ item.label }}</span>
+      </a>
+
+      <h3 *ngIf="item.type === 'subheading'"
+          @fadeInRight
+          class="caption text-secondary uppercase font-medium mb-0 mt-6">{{ item.label }}</h3>
+    </ng-container>
+  </div>
+</div>

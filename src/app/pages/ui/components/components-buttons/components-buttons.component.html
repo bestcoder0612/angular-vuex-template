@@ -1,0 +1,349 @@
+<vex-page-layout @stagger>
+
+  <vex-secondary-toolbar current="Buttons">
+    <vex-breadcrumbs [crumbs]="['Components', 'Buttons']"></vex-breadcrumbs>
+  </vex-secondary-toolbar>
+
+  <vex-page-layout-content vexContainer>
+    <vex-components-overview-buttons @fadeInUp class="block"></vex-components-overview-buttons>
+
+    <h2 class="title mt-6 mb-4" fxLayout="row" fxLayoutAlign="start center">
+    <span @scaleIn
+          [style.background-color]="theme.colors.primary['500'] | colorFade:0.9"
+          class="w-10 h-10 rounded-full text-primary-500 ltr:mr-3 rtl:ml-3 flex items-center justify-center">
+      <ic-icon [icon]="icSettings" size="20px"></ic-icon>
+      </span>
+      <span @fadeInRight class="block">Button Options</span>
+    </h2>
+
+    <div fxLayout="row" fxLayoutGap="20px">
+      <div @fadeInUp class="card" fxFlex>
+        <div class="px-6 py-4 border-b">
+          <h2 class="title">Button Colors</h2>
+        </div>
+
+        <div class="px-6 py-4">
+
+          <h4 class="body-2 text-secondary m-0">Material Buttons:</h4>
+
+          <div class="bg-base rounded-tr rounded-br border-l-3 p-4 mt-3"
+               fxLayout="row"
+               fxLayout.lt-sm="column"
+               fxLayoutAlign.lt-sm="start center"
+               fxLayoutGap="12px">
+            <button color="primary" mat-raised-button type="button">Primary</button>
+            <button color="accent" mat-raised-button type="button">Accent</button>
+            <button color="warn" mat-raised-button type="button">Warn</button>
+            <button disabled mat-raised-button type="button">Disabled</button>
+          </div>
+          <div class="bg-base rounded-tr rounded-br border-l-3 p-4 mt-3"
+               fxLayout="row"
+               fxLayout.lt-sm="column"
+               fxLayoutAlign.lt-sm="start center"
+               fxLayoutGap="12px">
+            <button color="primary" mat-stroked-button type="button">Primary</button>
+            <button color="accent" mat-stroked-button type="button">Accent</button>
+            <button color="warn" mat-stroked-button type="button">Warn</button>
+            <button disabled mat-stroked-button type="button">Disabled</button>
+          </div>
+          <div class="bg-base rounded-tr rounded-br border-l-3 p-4 mt-3"
+               fxLayout="row"
+               fxLayout.lt-sm="column"
+               fxLayoutAlign.lt-sm="start center"
+               fxLayoutGap="12px">
+            <button color="primary" mat-button type="button">Primary</button>
+            <button color="accent" mat-button type="button">Accent</button>
+            <button color="warn" mat-button type="button">Warn</button>
+            <button disabled mat-button type="button">Disabled</button>
+          </div>
+
+          <h4 class="body-2 text-secondary mt-8 mb-0">Colors:</h4>
+
+          <ng-container *ngFor="let color of colors">
+            <div class="bg-base rounded-tr rounded-br border-l-3 p-4 pt-1"
+                 fxLayout="row wrap"
+                 fxLayoutAlign.lt-sm="center start"
+                 fxLayoutGap="12px">
+
+              <button [ngClass]="[color.backgroundColor, color.backgroundContrastColor]"
+                      class="mt-3"
+                      mat-raised-button
+                      type="button">{{ color.label | uppercase }}</button>
+              <button [ngClass]="color.textColor"
+                      class="mt-3"
+                      mat-stroked-button
+                      type="button">{{ color.label | uppercase }}</button>
+
+              <button [ngClass]="['text-' + color.label + '-500']"
+                      class="mt-3"
+                      mat-button
+                      type="button">{{ color.label | uppercase }}</button>
+            </div>
+          </ng-container>
+        </div>
+      </div>
+
+      <div @fadeInUp class="card" fxFlex>
+        <div class="px-6 py-4 border-b">
+          <h2 class="title m-0">Buttons with Icons</h2>
+        </div>
+
+        <div class="px-6 py-4">
+          <h4 class="body-2 text-secondary m-0">Default Buttons with Icons:</h4>
+
+          <div class="bg-base rounded-tr rounded-br border-l-3 p-4 mt-3"
+               fxLayout="row"
+               fxLayout.lt-sm="column"
+               fxLayoutAlign.lt-sm="start center"
+               fxLayoutGap="12px">
+            <button color="primary" mat-raised-button type="button">
+              <ic-icon [icon]="icArchive"
+                       class="ltr:-ml-1 rtl:-mr-1 ltr:mr-2 rtl:ml-2"
+                       inline="true"
+                       size="24px"></ic-icon>
+              <span>Raised</span>
+            </button>
+
+            <button color="primary" mat-stroked-button type="button">
+              <ic-icon [icon]="icArchive"
+                       class="ltr:-ml-1 rtl:-mr-1 ltr:mr-2 rtl:ml-2"
+                       inline="true"
+                       size="24px"></ic-icon>
+              <span>Stroked</span>
+            </button>
+
+            <button color="primary" mat-button type="button">
+              <ic-icon [icon]="icArchive"
+                       class="ltr:-ml-1 rtl:-mr-1 ltr:mr-2 rtl:ml-2"
+                       inline="true"
+                       size="24px"></ic-icon>
+              <span>Flat</span>
+            </button>
+          </div>
+
+          <h4 class="body-2 text-secondary mt-8 mb-0">Pill Buttons with Icons:</h4>
+
+          <div class="bg-base rounded-tr rounded-br border-l-3 p-4 mt-3"
+               fxLayout="row"
+               fxLayout.lt-sm="column"
+               fxLayoutAlign.lt-sm="start center"
+               fxLayoutGap="12px">
+            <button class="rounded-full" color="primary" mat-raised-button type="button">
+              <ic-icon [icon]="icGrade"
+                       class="ltr:-ml-1 rtl:-mr-1 ltr:mr-2 rtl:ml-2"
+                       inline="true"
+                       size="24px"></ic-icon>
+              <span>Raised</span>
+            </button>
+
+            <button class="rounded-full" color="primary" mat-stroked-button type="button">
+              <ic-icon [icon]="icGrade"
+                       class="ltr:-ml-1 rtl:-mr-1 ltr:mr-2 rtl:ml-2"
+                       inline="true"
+                       size="24px"></ic-icon>
+              <span>Stroked</span>
+            </button>
+
+            <button class="rounded-full" color="primary" mat-button type="button">
+              <ic-icon [icon]="icGrade"
+                       class="ltr:-ml-1 rtl:-mr-1 ltr:mr-2 rtl:ml-2"
+                       inline="true"
+                       size="24px"></ic-icon>
+              <span>Flat</span>
+            </button>
+          </div>
+
+          <h4 class="body-2 text-secondary mt-8 mb-0">Size Icons & Buttons</h4>
+
+          <div class="bg-base rounded-tr rounded-br border-l-3 p-4 mt-3"
+               fxLayout="row"
+               fxLayout.lt-sm="column"
+               fxLayoutAlign="start center"
+               fxLayoutAlign.lt-sm="start center"
+               fxLayoutGap="12px">
+            <button class="rounded-full" color="primary" mat-raised-button type="button">
+              <ic-icon [icon]="icFavorite"
+                       class="ltr:-ml-2 rtl:-mr-2 ltr:mr-2 rtl:ml-2"
+                       inline="true"
+                       size="16px"></ic-icon>
+              <span>Raised</span>
+            </button>
+
+            <button class="rounded-full py-2 px-6 title" color="primary" mat-stroked-button type="button">
+              <ic-icon [icon]="icFavorite"
+                       class="ltr:-ml-2 rtl:-mr-2 ltr:mr-2 rtl:ml-2"
+                       inline="true"
+                       size="28px"></ic-icon>
+              <span>Stroked</span>
+            </button>
+
+            <button class="rounded-full py-2 px-6 title" color="primary" mat-raised-button type="button">
+              <ic-icon [icon]="icFavorite"
+                       class="ltr:-ml-2 rtl:-mr-2 ltr:mr-2 rtl:ml-2"
+                       inline="true"
+                       size="28px"></ic-icon>
+              <span>Raised</span>
+            </button>
+
+            <button class="rounded-full" color="primary" mat-button type="button">
+              <ic-icon [icon]="icFavorite"
+                       class="ltr:-ml-1 rtl:-mr-1 ltr:mr-2 rtl:ml-2"
+                       inline="true"
+                       size="24px"></ic-icon>
+              <span>Flat</span>
+            </button>
+          </div>
+
+          <h4 class="body-2 text-secondary mt-8 mb-0">Social Network pill buttons</h4>
+
+          <div class="bg-base rounded-tr rounded-br border-l-3 p-4 pt-1"
+               fxLayout="row wrap"
+               fxLayoutAlign.lt-sm="center start"
+               fxLayoutGap="12px">
+            <button class="bg-facebook text-white rounded-full mt-3" mat-raised-button type="button">
+              <ic-icon [icon]="faFacebook"
+                       class="ltr:-ml-1 rtl:-mr-1 ltr:mr-2 rtl:ml-2"
+                       inline="true"
+                       size="20px"></ic-icon>
+              <span>Facebook</span>
+            </button>
+
+            <button class="bg-twitter text-white rounded-full mt-3" mat-raised-button type="button">
+              <ic-icon [icon]="faTwitter"
+                       class="ltr:-ml-1 rtl:-mr-1 ltr:mr-2 rtl:ml-2"
+                       inline="true"
+                       size="20px"></ic-icon>
+              <span>Twitter</span>
+            </button>
+
+            <button class="bg-pinterest text-white rounded-full mt-3" mat-raised-button type="button">
+              <ic-icon [icon]="faPinterest"
+                       class="ltr:-ml-1 rtl:-mr-1 ltr:mr-2 rtl:ml-2"
+                       inline="true"
+                       size="20px"></ic-icon>
+              <span>Pinterest</span>
+            </button>
+
+            <button class="bg-instagram text-white rounded-full mt-3" mat-raised-button type="button">
+              <ic-icon [icon]="faInstagram"
+                       class="ltr:-ml-1 rtl:-mr-1 ltr:mr-2 rtl:ml-2"
+                       inline="true"
+                       size="20px"></ic-icon>
+              <span>Instagram</span>
+            </button>
+
+            <button class="bg-github text-white rounded-full mt-3" mat-raised-button type="button">
+              <ic-icon [icon]="faGithub"
+                       class="ltr:-ml-1 rtl:-mr-1 ltr:mr-2 rtl:ml-2"
+                       inline="true"
+                       size="20px"></ic-icon>
+              <span>GitHub</span>
+            </button>
+          </div>
+
+          <h4 class="body-2 text-secondary mt-8 mb-0">Social Network square buttons</h4>
+
+          <div class="bg-base rounded-tr rounded-br border-l-3 p-4 pt-1"
+               fxLayout="row wrap"
+               fxLayoutAlign.lt-sm="center start"
+               fxLayoutGap="12px">
+            <button class="bg-facebook text-white mt-3" mat-raised-button type="button">
+              <ic-icon [icon]="faFacebook"
+                       class="ltr:-ml-1 rtl:-mr-1 ltr:mr-2 rtl:ml-2"
+                       inline="true"
+                       size="20px"></ic-icon>
+              <span>Facebook</span>
+            </button>
+
+            <button class="bg-twitter text-white mt-3" mat-raised-button type="button">
+              <ic-icon [icon]="faTwitter"
+                       class="ltr:-ml-1 rtl:-mr-1 ltr:mr-2 rtl:ml-2"
+                       inline="true"
+                       size="20px"></ic-icon>
+              <span>Twitter</span>
+            </button>
+
+            <button class="bg-pinterest text-white mt-3" mat-raised-button type="button">
+              <ic-icon [icon]="faPinterest"
+                       class="ltr:-ml-1 rtl:-mr-1 ltr:mr-2 rtl:ml-2"
+                       inline="true"
+                       size="20px"></ic-icon>
+              <span>Pinterest</span>
+            </button>
+
+            <button class="bg-instagram text-white mt-3" mat-raised-button type="button">
+              <ic-icon [icon]="faInstagram"
+                       class="ltr:-ml-1 rtl:-mr-1 ltr:mr-2 rtl:ml-2"
+                       inline="true"
+                       size="20px"></ic-icon>
+              <span>Instagram</span>
+            </button>
+
+            <button class="bg-github text-white mt-3" mat-raised-button type="button">
+              <ic-icon [icon]="faGithub"
+                       class="ltr:-ml-1 rtl:-mr-1 ltr:mr-2 rtl:ml-2"
+                       inline="true"
+                       size="20px"></ic-icon>
+              <span>GitHub</span>
+            </button>
+          </div>
+
+          <h4 class="body-2 text-secondary mt-8 mb-0">Icon Buttons:</h4>
+
+          <div class="bg-base rounded-tr rounded-br border-l-3 p-4 mt-3"
+               fxLayout="row"
+               fxLayout.lt-sm="column"
+               fxLayoutAlign="start center"
+               fxLayoutAlign.lt-sm="start center"
+               fxLayoutGap="12px">
+            <button color="primary" mat-icon-button type="button">
+              <mat-icon [icIcon]="icFavorite"></mat-icon>
+            </button>
+
+            <button color="accent" mat-icon-button type="button">
+              <mat-icon [icIcon]="icFavorite"></mat-icon>
+            </button>
+
+            <button color="warn" mat-icon-button type="button">
+              <mat-icon [icIcon]="icFavorite"></mat-icon>
+            </button>
+
+            <button color="primary" mat-mini-fab type="button">
+              <mat-icon [icIcon]="icFavorite"></mat-icon>
+            </button>
+
+            <button color="accent" mat-mini-fab type="button">
+              <mat-icon [icIcon]="icFavorite"></mat-icon>
+            </button>
+
+            <button color="warn" mat-mini-fab type="button">
+              <mat-icon [icIcon]="icFavorite"></mat-icon>
+            </button>
+          </div>
+
+          <h4 class="body-2 text-secondary mt-8 mb-0">FAB Buttons:</h4>
+
+          <div class="bg-base rounded-tr rounded-br border-l-3 p-4 mt-3"
+               fxLayout="row"
+               fxLayout.lt-sm="column"
+               fxLayoutAlign="start center"
+               fxLayoutAlign.lt-sm="start center"
+               fxLayoutGap="12px">
+            <button color="primary" mat-fab type="button">
+              <mat-icon [icIcon]="icFavorite"></mat-icon>
+            </button>
+
+            <button color="accent" mat-fab type="button">
+              <mat-icon [icIcon]="icFavorite"></mat-icon>
+            </button>
+
+            <button color="warn" mat-fab type="button">
+              <mat-icon [icIcon]="icFavorite"></mat-icon>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </vex-page-layout-content>
+
+</vex-page-layout>

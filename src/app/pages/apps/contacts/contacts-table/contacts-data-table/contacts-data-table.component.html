@@ -1,0 +1,96 @@
+<div class="h-full relative" vexScrollbar>
+  <div fxLayout="column" fxLayoutAlign="space-between">
+    <table [@stagger]="dataSource.filteredData"
+           [dataSource]="dataSource"
+           class="w-full"
+           fxFlex="auto"
+           mat-table
+           matSort>
+
+      <!--- Note that these columns can be defined in any order.
+            The actual rendered columns are set as a property on the row definition" -->
+
+      <!-- Model Properties Column -->
+      <ng-container *ngFor="let column of columns">
+        <ng-container *ngIf="column.type === 'text'" [matColumnDef]="column.property">
+          <th *matHeaderCellDef mat-header-cell mat-sort-header> {{ column.label }}</th>
+          <td *matCellDef="let row" [ngClass]="column.cssClasses" mat-cell>{{ row[column.property] }}</td>
+        </ng-container>
+
+        <ng-container *ngIf="column.type === 'checkbox'" [matColumnDef]="column.property">
+          <th *matHeaderCellDef mat-header-cell mat-sort-header> {{ column.label }}</th>
+          <td *matCellDef="let row" [ngClass]="column.cssClasses" mat-cell>
+            <mat-checkbox (click)="$event.stopPropagation()" [checked]="row[column.property]"></mat-checkbox>
+          </td>
+        </ng-container>
+
+        <ng-container *ngIf="column.type === 'image'" [matColumnDef]="column.property">
+          <th *matHeaderCellDef mat-header-cell mat-sort-header> {{ column.label }}</th>
+          <td *matCellDef="let row" [ngClass]="column.cssClasses" mat-cell>
+            <img [src]="row[column.property]" class="avatar h-9 w-9 align-middle my-2">
+          </td>
+        </ng-container>
+
+        <ng-container *ngIf="column.type === 'button'" [matColumnDef]="column.property">
+          <ng-container *ngIf="column.property === 'starred'">
+            <th *matHeaderCellDef mat-header-cell mat-sort-header> {{ column.label }}</th>
+            <td *matCellDef="let row" [ngClass]="column.cssClasses" class="w-10" mat-cell>
+              <button (click)="emitToggleStar($event, row.id)" mat-icon-button type="button">
+                <mat-icon *ngIf="row[column.property]" [icIcon]="icStar" class="text-amber-500"></mat-icon>
+                <mat-icon *ngIf="!row[column.property]" [icIcon]="icStarBorder"></mat-icon>
+              </button>
+            </td>
+          </ng-container>
+
+          <ng-container *ngIf="column.property === 'menu'">
+            <th *matHeaderCellDef mat-header-cell mat-sort-header> {{ column.label }}</th>
+            <td *matCellDef="let row" [ngClass]="column.cssClasses" class="w-10" mat-cell>
+              <button (click)="$event.stopPropagation()"
+                      [matMenuTriggerFor]="contactMenu"
+                      mat-icon-button
+                      type="button">
+                <mat-icon [icIcon]="icMoreVert"></mat-icon>
+              </button>
+            </td>
+          </ng-container>
+        </ng-container>
+      </ng-container>
+
+
+      <tr *matHeaderRowDef="visibleColumns; sticky: true" mat-header-row></tr>
+      <!--suppress UnnecessaryLabelJS -->
+      <tr (click)="openContact.emit(row.id)"
+          *matRowDef="let row; columns: visibleColumns;"
+          @fadeInUp
+          class="hover:bg-hover cursor-pointer"
+          mat-row></tr>
+    </table>
+
+    <div *ngIf="dataSource.filteredData.length === 0"
+         @scaleFadeIn
+         fxFlex="auto"
+         fxLayout="column"
+         fxLayoutAlign="center center">
+      <img class="m-12 h-64" src="assets/img/illustrations/idea.svg">
+      <h2 class="headline m-0 text-center">No contacts matching your filters</h2>
+    </div>
+
+    <mat-paginator [fxHide]="dataSource.filteredData.length === 0"
+                   [pageSize]="pageSize"
+                   [pageSizeOptions]="pageSizeOptions"
+                   class="sticky bottom-0 left-0 right-0 border-t"
+                   fxFlex="none"></mat-paginator>
+  </div>
+</div>
+
+<mat-menu #contactMenu="matMenu" xPosition="before" yPosition="below">
+  <button mat-menu-item>
+    <mat-icon [icIcon]="icEdit"></mat-icon>
+    <span>Edit Contact</span>
+  </button>
+
+  <button mat-menu-item>
+    <mat-icon [icIcon]="icDeleteForever"></mat-icon>
+    <span>Delete Contact</span>
+  </button>
+</mat-menu>

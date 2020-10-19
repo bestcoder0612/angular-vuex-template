@@ -1,0 +1,130 @@
+<div class="text-center p-gutter pb-24 header">
+  <div class="container">
+    <h2 @fadeInUp class="display-2 mt-16 mb-8">Frequently Asked Questions</h2>
+    <div @fadeInUp
+         class="border rounded-full bg-card py-2 ltr:pl-6 rtl:pr-6 ltr:pr-3 rtl:pl-3 text-secondary max-w-xl mx-auto shadow-8"
+         fxLayout="row"
+         fxLayoutAlign="start center">
+      <ic-icon [icon]="icSearch" fxFlex="none" size="24px"></ic-icon>
+      <input class="border-0 ltr:ml-4 rtl:mr-4 placeholder:text-secondary subheading-2 outline-none font-medium w-0 bg-card"
+             fxFlex="auto"
+             placeholder="Search for answers..."
+             type="text">
+      <button class="rounded-full" color="primary" fxFlex="none" mat-raised-button type="button">SEARCH</button>
+    </div>
+  </div>
+
+  <div class="text-left mt-24 max-w-3xl mx-auto">
+    <mat-accordion>
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>How do I purchase the template?</mat-panel-title>
+        </mat-expansion-panel-header>
+
+        <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind
+          texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
+
+        <p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a
+          paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
+
+        <p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One
+          day
+          however a small line of blind text by the name of Lorem Ipsum decided to leave for the far World of
+          Grammar.</p>
+      </mat-expansion-panel>
+
+      <mat-expansion-panel [expanded]="true">
+        <mat-expansion-panel-header>
+          <mat-panel-title>Which payment methods are supported?</mat-panel-title>
+        </mat-expansion-panel-header>
+
+        <p>The Big Oxmox advised her not to do so, because there were thousands of bad Commas, wild Question Marks and
+          devious Semikoli, but the Little Blind Text didn’t listen.</p>
+
+        <p>She packed her seven versalia, put her initial into the belt and made herself on the way.</p>
+
+        <p>When she reached the first hills of the Italic Mountains, she had a last view back on the skyline of her
+          hometown Bookmarksgrove, the headline of Alphabet Village and the subline of her own road, the Line Lane.</p>
+      </mat-expansion-panel>
+
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>How does it work?</mat-panel-title>
+        </mat-expansion-panel-header>
+
+        <p>Pityful a rethoric question ran over her cheek, then she continued her way. On her way she met a copy.</p>
+
+        <p>The copy warned the Little Blind Text, that where it came from it would have been rewritten a thousand times
+          and everything that was left from its origin would be the word "and" and the Little Blind Text should turn
+          around and return to its own, safe country.</p>
+
+        <p>But nothing the copy said could convince her and so it didn’t take long until a few insidious Copy Writers
+          ambushed her, made her drunk with Longe and Parole and dragged her into their agency, where they abused her
+          for
+          their projects again and again.</p>
+      </mat-expansion-panel>
+
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>How long does shipping take?</mat-panel-title>
+        </mat-expansion-panel-header>
+
+        <p>And if she hasn’t been rewritten, then they are still using her. Far far away, behind the word mountains, far
+          from the countries Vokalia and Consonantia, there live the blind texts.</p>
+
+        <p>Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean. A small
+          river named Duden flows by their place and supplies it with the necessary regelialia.</p>
+
+        <p>It is a paradisematic country, in which roasted parts of sentences fly into your mouth. Even the all-powerful
+          Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line
+          of blind text by the name of Lorem Ipsum decided to leave for the far World of Grammar.</p>
+      </mat-expansion-panel>
+
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>What do I need to do?</mat-panel-title>
+        </mat-expansion-panel-header>
+
+        <p>The Big Oxmox advised her not to do so, because there were thousands of bad Commas, wild Question Marks and
+          devious Semikoli, but the Little Blind Text didn’t listen. She packed her seven versalia, put her initial into
+          the belt and made herself on the way.</p>
+
+        <p>When she reached the first hills of the Italic Mountains, she had a last view back on the skyline of her
+          hometown Bookmarksgrove, the headline of Alphabet Village and the subline of her own road, the Line Lane.
+          Pityful a rethoric question ran over her cheek, then she continued her way.</p>
+
+        <p>On her way she met a copy. The copy warned the Little Blind Text, that where it came from it would have been
+          rewritten a thousand times and everything that was left from its origin would be the word "and" and the Little
+          Blind Text should turn around and return to its own, safe country. But nothing the copy said could convince
+          her
+          and so it didn’t take long until a few insidious Copy Writers ambushed her, made her drunk</p>
+      </mat-expansion-panel>
+    </mat-accordion>
+  </div>
+</div>
+
+<div class="bg-card py-16 px-gutter footer">
+  <h2 class="display-1 mt-0 mb-4 text-center">Still have questions?</h2>
+  <h3 class="subheading-2 text-hint text-center max-w-lg mx-auto m-0">A wonderful serenity has taken possession of my
+    entire
+    soul, like these sweet
+    mornings of spring which I enjoy with my whole heart.</h3>
+
+  <div class="mt-16 max-w-3xl mx-auto" fxLayout="row" fxLayout.xs="column" fxLayoutGap="24px">
+    <a class="text-center p-6 border rounded"
+       fxFlex
+       routerLinkActive>
+      <ic-icon [icon]="icPhoneInTalk" class="text-hint" size="42px"></ic-icon>
+      <h3 class="title mb-0 mt-4">+1 (840) 423-3404</h3>
+      <h4 class="subheading-2 m-0 text-hint">Call us anytime for a quick solution</h4>
+    </a>
+
+    <a class="text-center p-6 border rounded"
+       fxFlex
+       routerLinkActive>
+      <ic-icon [icon]="icMail" class="text-hint" size="42px"></ic-icon>
+      <h3 class="title mb-0 mt-4">support@example.com</h3>
+      <h4 class="subheading-2 m-0 text-hint">Send us a mail to resolve your issue</h4>
+    </a>
+  </div>
+</div>

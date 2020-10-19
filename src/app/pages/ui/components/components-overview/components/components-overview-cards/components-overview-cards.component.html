@@ -1,0 +1,55 @@
+<div class="card overflow-hidden" fxLayout="column" fxLayout.gt-sm="row">
+  <div class="p-6 bg-app-bar">
+    <h2 class="title mt-0 mb-4">Preview</h2>
+
+    <mat-card class="max-w-full">
+      <mat-card-header>
+        <img mat-card-avatar src="assets/img/avatars/3.jpg">
+        <mat-card-subtitle>
+          Yesterday
+        </mat-card-subtitle>
+        <mat-card-title>Gerald Morris</mat-card-title>
+      </mat-card-header>
+      <img mat-card-image src="assets/img/demo/mountain-cinematic.jpg">
+      <mat-card-content>
+        <p>Piqued favour stairs it enable exeter as seeing. Remainder met improving but engrossed sincerity age.
+          Better but length gay denied abroad are. Attachment astonished to on appearance imprudence so collecting in
+          excellence. Tiled way blind lived whose new. The for fully had she there leave merit enjoy forth. </p>
+      </mat-card-content>
+      <mat-divider></mat-divider>
+      <mat-card-actions>
+        <div fxLayout="row">
+          <button color="primary" mat-icon-button>
+            <mat-icon [icIcon]="icShare"></mat-icon>
+          </button>
+          <button color="accent" mat-icon-button>
+            <mat-icon [icIcon]="icFavorite"></mat-icon>
+          </button>
+          <span fxFlex></span>
+          <button fxHide.xs mat-button>MORE INFO</button>
+          <button color="primary" mat-button>SAVE AS</button>
+        </div>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+
+  <div class="border-l" fxFlex>
+    <div class="p-6">
+      <h2 class="title mt-0 mb-4">Cards</h2>
+      <h4 class="body-2 text-secondary m-0">&lt;mat-card&gt;</h4>
+    </div>
+
+    <mat-tab-group class="vex-tabs">
+      <mat-tab label="DESCRIPTION">
+        <p class="p-6 m-0">
+          Cards may contain a photo, text, and a link about a single subject. They may display content containing
+          elements of varying size, such as photos with captions of variable length.
+        </p>
+      </mat-tab>
+      <mat-tab label="SOURCE CODE">
+        <pre><code [vexHighlight]="cardHTML"></code></pre>
+      </mat-tab>
+    </mat-tab-group>
+  </div>
+</div>
+

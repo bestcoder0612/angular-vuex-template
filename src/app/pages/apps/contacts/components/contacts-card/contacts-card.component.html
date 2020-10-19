@@ -1,0 +1,37 @@
+<div class="card overflow-hidden">
+  <div (click)="openContact.emit(contact.id)"
+       class="p-4 text-center hover:bg-hover trans-ease-out cursor-pointer relative"
+       matRipple>
+    <img [src]="contact?.imageSrc" class="avatar h-24 w-24 mx-auto">
+
+    <h2 class="title mb-1 mt-3">{{ contact?.name }}</h2>
+    <div class="body-2 text-secondary">
+      <ic-icon [icon]="icBusiness" class="ltr:mr-1 rtl:ml-1" inline="true"></ic-icon>
+      <span>{{ contact?.company }}</span>
+    </div>
+
+    <div class="body-2 text-secondary">
+      <ic-icon [icon]="icPhone" class="ltr:mr-1 rtl:ml-1" inline="true"></ic-icon>
+      <span>{{ contact?.phone }}</span>
+    </div>
+
+    <button (click)="emitToggleStar($event, contact?.id)" class="absolute top-2 right-2" mat-icon-button type="button">
+      <mat-icon *ngIf="contact?.starred" [icIcon]="icStar" class="text-amber-500"></mat-icon>
+      <mat-icon *ngIf="!contact?.starred" [icIcon]="icStarBorder"></mat-icon>
+    </button>
+  </div>
+
+  <div class="bg-app-bar p-2" fxLayout="row" fxLayoutAlign="space-around center">
+    <button class="text-secondary" mat-icon-button type="button">
+      <mat-icon [icIcon]="icPhone"></mat-icon>
+    </button>
+
+    <button class="text-secondary" mat-icon-button type="button">
+      <mat-icon [icIcon]="icMail"></mat-icon>
+    </button>
+
+    <button class="text-secondary" mat-icon-button type="button">
+      <mat-icon [icIcon]="icChat"></mat-icon>
+    </button>
+  </div>
+</div>

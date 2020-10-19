@@ -1,0 +1,16 @@
+<vex-page-layout>
+
+  <vex-secondary-toolbar current="Documentation">
+    <vex-breadcrumbs [crumbs]="['Documentation', 'Vex']" fxFlex="auto"></vex-breadcrumbs>
+
+    <button class="ml-2" color="primary" mat-icon-button type="button">
+      <mat-icon [icIcon]="icMoreVert"></mat-icon>
+    </button>
+  </vex-secondary-toolbar>
+
+  <vex-page-layout-content vexContainer>
+    <div class="card p-gutter relative">
+      <showdown src="/README.md"></showdown>
+    </div>
+  </vex-page-layout-content>
+</vex-page-layout>

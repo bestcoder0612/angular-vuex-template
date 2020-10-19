@@ -1,0 +1,168 @@
+<div class="container py-gutter">
+  <div class="card overflow-hidden">
+    <div class="h-64 relative overflow-hidden">
+      <img class="w-full object-cover" src="assets/img/demo/landscape.jpg">
+      <div class="absolute bg-contrast-black opacity-25 top-0 right-0 bottom-0 left-0 w-full h-full z-0"></div>
+
+      <img class="avatar h-24 w-24 absolute top-6 left-4"
+           fxFlex="none"
+           fxFlexAlign="start"
+           fxHide.gt-xs
+           src="assets/img/avatars/1.jpg">
+    </div>
+
+    <div class="z-10 relative -mt-16 px-gutter" fxLayout="row" fxLayoutAlign="start center">
+
+      <img @scaleIn
+           class="avatar h-24 w-24"
+           fxFlex="none"
+           fxFlexAlign="start"
+           fxHide.xs
+           src="assets/img/avatars/1.jpg">
+
+      <div [ngClass.gt-xs]="['ltr:ml-6 rtl:mr-6']" class="max-w-full" fxFlex="auto">
+        <div class="h-16" fxLayout="row" fxLayoutAlign="start center">
+          <h1 @fadeInRight class="headline text-contrast-white m-0">David Smith</h1>
+        </div>
+
+        <nav class="vex-tabs vex-tabs-dense border-0" mat-tab-nav-bar>
+          <a #rla="routerLinkActive"
+             *ngFor="let link of links"
+             [active]="rla.isActive"
+             [disabled]="link.disabled"
+             [routerLink]="link.route"
+             mat-tab-link
+             queryParamsHandling="preserve"
+             routerLinkActive>
+            {{ link.label }}
+          </a>
+        </nav>
+      </div>
+    </div>
+  </div>
+
+  <div class="mt-6"
+       fxLayout="row"
+       fxLayout.lt-md="column"
+       fxLayoutAlign="start start"
+       fxLayoutAlign.lt-md="start stretch"
+       fxLayoutGap="24px">
+    <div fxFlex="calc(70% - 12px)" fxFlex.lt-md="auto">
+      <div class="card">
+        <div class="px-gutter py-4 border-b">
+          <h2 class="title m-0">About</h2>
+        </div>
+
+        <div class="px-gutter py-4" gdColumns="1fr 1fr" gdColumns.xs="1fr" gdGap="16px">
+          <div class="py-3" fxLayout="row" fxLayoutAlign="start center">
+            <div @scaleIn
+                 class="w-10 h-10 rounded-full bg-primary-50 text-primary-500 ltr:mr-3 rtl:ml-3 flex items-center justify-center">
+              <ic-icon [icon]="icPhone" size="20px"></ic-icon>
+            </div>
+
+            <div @fadeInRight>
+              <p class="m-0 body-1">+1 (930) 502-3182</p>
+              <p class="m-0 caption text-hint">Business</p>
+            </div>
+          </div>
+
+          <div class="py-3" fxLayout="row" fxLayoutAlign="start center">
+            <div @scaleIn
+                 class="w-10 h-10 rounded-full bg-primary-50 text-primary-500 ltr:mr-3 rtl:ml-3 flex items-center justify-center">
+              <ic-icon [icon]="icWork" size="20px"></ic-icon>
+            </div>
+
+            <div @fadeInRight>
+              <p class="m-0 body-1">Web Developer at IceCube</p>
+              <p class="m-0 caption text-hint">Previously Designer at HotStuff</p>
+            </div>
+          </div>
+
+          <div class="py-3" fxLayout="row" fxLayoutAlign="start center">
+            <div @scaleIn
+                 class="w-10 h-10 rounded-full bg-primary-50 text-primary-500 ltr:mr-3 rtl:ml-3 flex items-center justify-center">
+              <ic-icon [icon]="icMail" size="20px"></ic-icon>
+            </div>
+
+            <div @fadeInRight>
+              <p class="m-0 body-1">david.smith@example.com</p>
+              <p class="m-0 caption text-hint">Business inquiries only</p>
+            </div>
+          </div>
+
+          <div class="py-3" fxLayout="row" fxLayoutAlign="start center">
+            <div @scaleIn
+                 class="w-10 h-10 rounded-full bg-primary-50 text-primary-500 ltr:mr-3 rtl:ml-3 flex items-center justify-center">
+              <ic-icon [icon]="icAccessTime" size="20px"></ic-icon>
+            </div>
+
+            <div @fadeInRight>
+              <p class="m-0 body-1">Usually available 9am-5pm</p>
+              <p class="m-0 caption text-hint">Call +1 (930) 242-5186 for important things</p>
+            </div>
+          </div>
+
+          <div class="py-3" fxLayout="row" fxLayoutAlign="start center">
+            <div @scaleIn
+                 class="w-10 h-10 rounded-full bg-gray-50 text-dark ltr:mr-3 rtl:ml-3 cursor-pointer flex items-center justify-center">
+              <ic-icon [icon]="icAdd" size="20px"></ic-icon>
+            </div>
+
+            <p @fadeInRight class="m-0 body-1 cursor-pointer">Add an address</p>
+          </div>
+
+          <div class="py-3" fxLayout="row" fxLayoutAlign="start center">
+            <div @scaleIn
+                 class="w-10 h-10 rounded-full bg-gray-50 text-dark ltr:mr-3 rtl:ml-3 cursor-pointer flex items-center justify-center">
+              <ic-icon [icon]="icWhatshot" size="20px"></ic-icon>
+            </div>
+
+            <p @fadeInRight class="m-0 body-1 cursor-pointer">Add social profiles</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="card mt-6">
+        <div class="px-gutter py-4 border-b">
+          <h2 class="title m-0">Latest Photos</h2>
+        </div>
+
+        <div @stagger
+             class="px-gutter py-4"
+             gdColumns="1fr 1fr 1fr 1fr"
+             gdColumns.lt-lg="1fr 1fr 1fr"
+             gdColumns.xs="1fr 1fr"
+             gdGap="24px">
+          <img *ngFor="let i of [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]"
+               @scaleIn
+               class="rounded w-full"
+               gdGridAlign="center"
+               src="assets/img/avatars/{{ i }}.jpg">
+        </div>
+      </div>
+    </div>
+
+    <div class="card" fxFlex="calc(30% - 12px)" fxFlex.lt-md="auto">
+      <div class="px-6 py-4 border-b">
+        <h2 class="title m-0">Friend Suggestions</h2>
+      </div>
+
+      <div @stagger class="px-6 py-4" fxLayout="column" fxLayoutGap="16px">
+        <div *ngFor="let friend of suggestions; trackBy: trackByName" fxLayout="row" fxLayoutAlign="start center">
+          <img @scaleIn [src]="friend.imageSrc" class="avatar ltr:mr-3 rtl:ml-3" fxFlex="none">
+          <div @fadeInRight fxFlex="auto">
+            <h4 class="body-2 m-0 leading-snug">{{ friend.name }}</h4>
+            <h5 class="text-secondary m-0 caption leading-none">{{ friend.friends }} mutual friends</h5>
+          </div>
+          <button (click)="addFriend(friend)" *ngIf="!friend.added" color="primary" mat-icon-button type="button">
+            <mat-icon [icIcon]="icPersonAdd"></mat-icon>
+          </button>
+
+          <button (click)="removeFriend(friend)" *ngIf="friend.added" color="primary" mat-icon-button type="button">
+            <mat-icon [icIcon]="icCheck"></mat-icon>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

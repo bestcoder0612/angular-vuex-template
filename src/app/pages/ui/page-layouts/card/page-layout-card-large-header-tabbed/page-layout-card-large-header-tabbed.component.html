@@ -1,0 +1,32 @@
+<vex-page-layout mode="card">
+
+  <vex-page-layout-header fxLayout="column" fxLayoutAlign="center start">
+    <div vexContainer>
+      <h2 class="title m-0">Card - Large Header & Tabbed</h2>
+      <vex-breadcrumbs [crumbs]="['Page Layouts', 'Card', 'Large Header & Tabbed']"></vex-breadcrumbs>
+    </div>
+  </vex-page-layout-header>
+
+  <vex-page-layout-content vexContainer>
+    <div class="card">
+      <mat-tab-group>
+        <mat-tab label="Main Tab">
+          <div class="p-6">
+            <vex-page-layout-demo></vex-page-layout-demo>
+          </div>
+        </mat-tab>
+        <mat-tab label="Side Tab">
+          <div class="p-6">
+            <vex-page-layout-demo></vex-page-layout-demo>
+          </div>
+        </mat-tab>
+        <mat-tab label="Extra Tab">
+          <div class="p-6">
+            <vex-page-layout-demo></vex-page-layout-demo>
+          </div>
+        </mat-tab>
+      </mat-tab-group>
+    </div>
+  </vex-page-layout-content>
+
+</vex-page-layout>

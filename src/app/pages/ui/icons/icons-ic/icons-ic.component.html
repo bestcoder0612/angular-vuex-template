@@ -1,0 +1,17 @@
+<cdk-virtual-scroll-viewport class="flex-auto" itemSize="96">
+  <div *cdkVirtualFor="let group of filteredIcons$ | async">
+    <div *ngFor="let icon of group | keyvalue" class="icon-container">
+      <ic-icon [icon]="icon.value" class="icon" size="48px"></ic-icon>
+      <div class="body-2 text-secondary text-center">{{ icon.key }}</div>
+    </div>
+  </div>
+
+
+  <div *ngIf="(filteredIcons$ | async | keyvalue).length === 0"
+       @scaleFadeIn
+       fxLayout="column"
+       fxLayoutAlign="center center">
+    <img class="m-8 h-64" src="assets/img/illustrations/peak_mountain_3.svg">
+    <h2 class="headline m-0 text-center">No icon matching your filters</h2>
+  </div>
+</cdk-virtual-scroll-viewport>

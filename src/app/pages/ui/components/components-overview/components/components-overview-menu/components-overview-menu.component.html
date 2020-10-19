@@ -1,0 +1,45 @@
+<div class="card" fxLayout="column" fxLayout.gt-sm="row">
+  <div class="p-6">
+    <h2 class="title mt-0 mb-4">Preview</h2>
+    <div fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="24px">
+      <button [matMenuTriggerFor]="menu" mat-icon-button>
+        <mat-icon [icIcon]="icMoreVert"></mat-icon>
+      </button>
+
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item>
+          <mat-icon [icIcon]="icDialpad"></mat-icon>
+          <span> Redial </span>
+        </button>
+        <button disabled mat-menu-item>
+          <mat-icon [icIcon]="icVoicemail"></mat-icon>
+          <span> Check voicemail </span>
+        </button>
+        <button mat-menu-item>
+          <mat-icon [icIcon]="icNotificationsOff"></mat-icon>
+          <span> Disable alerts </span>
+        </button>
+      </mat-menu>
+    </div>
+  </div>
+
+  <div class="border-l" fxFlex>
+    <div class="p-6">
+      <h2 class="title mt-0 mb-4">Menu</h2>
+      <h4 class="body-2 text-secondary m-0">&lt;mat-menu&gt;</h4>
+    </div>
+
+    <mat-tab-group class="vex-tabs">
+      <mat-tab label="DESCRIPTION">
+        <p class="p-6">
+          Menus offer a list of options that are displayed when triggered. The position (before, after) and (above,
+          below) is automatically decided, but can be overridden with e.g. x-position='before'.
+        </p>
+      </mat-tab>
+      <mat-tab label="SOURCE CODE">
+        <pre><code [vexHighlight]="menuHTML"></code></pre>
+      </mat-tab>
+    </mat-tab-group>
+  </div>
+</div>
+

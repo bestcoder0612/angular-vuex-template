@@ -1,0 +1,17 @@
+@media print {
+  .p-gutter {
+    padding: 0 !important;
+  }
+
+  .card {
+    box-shadow: none !important;
+  }
+}
+
+
+.table {
+  td {
+    padding-left: var(--padding);
+    padding-right: var(--padding);
+  }
+}

@@ -1,0 +1,31 @@
+<div class="card" fxLayout="column" fxLayout.gt-sm="row">
+  <div class="p-6">
+    <h2 class="title mt-0 mb-4">Preview</h2>
+    <div fxLayout="column" fxLayoutAlign="start center" fxLayoutGap="24px">
+      <button mat-icon-button matTooltip="Favorite this">
+        <mat-icon [icIcon]="icFavorite"></mat-icon>
+      </button>
+    </div>
+  </div>
+
+  <div class="border-l" fxFlex>
+    <div class="p-6">
+      <h2 class="title mt-0 mb-4">Tooltip</h2>
+      <h4 class="body-2 text-secondary m-0">&lt;mat-snack-bar&gt;</h4>
+    </div>
+
+    <mat-tab-group class="vex-tabs">
+      <mat-tab label="DESCRIPTION">
+        <p class="p-6">
+          Tooltips identify an element when they are activated. They may contain brief helper text about its function.
+          For example, they may contain text information about actionable icons.
+          <br>Tooltip labels do not receive input focus.
+        </p>
+      </mat-tab>
+      <mat-tab label="SOURCE CODE">
+        <pre><code [vexHighlight]="tooltipHTML"></code></pre>
+      </mat-tab>
+    </mat-tab-group>
+  </div>
+</div>
+

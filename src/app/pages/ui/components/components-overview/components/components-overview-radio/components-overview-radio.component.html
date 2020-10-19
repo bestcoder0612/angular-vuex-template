@@ -1,0 +1,33 @@
+<div class="card" fxLayout="column" fxLayout.gt-sm="row">
+  <div class="p-6">
+    <h2 class="title mt-0 mb-4">Preview</h2>
+    <div fxLayout="column" fxLayoutAlign="start center" fxLayoutGap="24px">
+      <mat-radio-group [(ngModel)]="favoriteSeason" class="radio">
+        <mat-radio-button *ngFor="let season of seasons" [value]="season" class="example-radio-button">
+          {{ season }}
+        </mat-radio-button>
+      </mat-radio-group>
+    </div>
+  </div>
+
+  <div class="border-l" fxFlex>
+    <div class="p-6">
+      <h2 class="title mt-0 mb-4">Radio</h2>
+      <h4 class="body-2 text-secondary m-0">&lt;mat-radio-group&gt;</h4>
+    </div>
+
+    <mat-tab-group class="vex-tabs">
+      <mat-tab label="DESCRIPTION">
+        <p class="p-6">
+          Radio buttons allow the user to select one option from a set. Use radio buttons for exclusive selection if you
+          think that the user needs to see all available options side-by-side.
+          <br>Otherwise, consider a dropdown, which uses less space than displaying all options.
+        </p>
+      </mat-tab>
+      <mat-tab label="SOURCE CODE">
+        <pre><code [vexHighlight]="radioHTML"></code></pre>
+      </mat-tab>
+    </mat-tab-group>
+  </div>
+</div>
+

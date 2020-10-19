@@ -1,0 +1,92 @@
+@import "./var.scss";
+
+.card {
+  @apply rounded shadow-8 bg-card;
+}
+
+.avatar {
+  @apply h-10 w-10 object-cover rounded-full bg-hover;
+}
+
+.hidden-input {
+  @apply border-2 border-solid border-transparent py-1 px-3 rounded;
+
+  &:focus {
+    @apply border-primary-500 outline-none;
+  }
+
+  &.empty {
+    @apply border-primary-500;
+  }
+}
+
+.list-item {
+  @apply rounded h-12 px-4 cursor-pointer;
+}
+
+.list-item:hover {
+  @apply bg-hover;
+}
+
+.bg-pattern {
+  background: linear-gradient(135deg, var(--background-base) 22px, var(--background-hover) 22px, var(--background-hover) 24px, transparent 24px, transparent 67px, var(--background-hover) 67px, var(--background-hover) 69px, transparent 69px),
+  linear-gradient(225deg, var(--background-base) 22px, var(--background-hover) 22px, var(--background-hover) 24px, transparent 24px, transparent 67px, var(--background-hover) 67px, var(--background-hover) 69px, transparent 69px) 0 64px;
+  background-color: var(--background-base);
+  background-size: 64px 128px;
+}
+
+// Transitions
+
+.trans-ease-out {
+  transition: $swift-ease-out;
+}
+
+.trans-shadow {
+  transition: box-shadow $mat-elevation-transition-duration $mat-elevation-transition-timing-function;
+}
+
+// Typography
+
+.display-4 {
+  @include mat-typography-level-to-styles($config, display-4);
+}
+
+.display-3 {
+  @include mat-typography-level-to-styles($config, display-3);
+}
+
+.display-2 {
+  @include mat-typography-level-to-styles($config, display-2);
+}
+
+.display-1, h1 {
+  @include mat-typography-level-to-styles($config, display-1);
+}
+
+.headline, h2 {
+  @include mat-typography-level-to-styles($config, headline);
+}
+
+.title, h3 {
+  @include mat-typography-level-to-styles($config, title);
+}
+
+.subheading-2, h4 {
+  @include mat-typography-level-to-styles($config, subheading-2);
+}
+
+.subheading-1, h5 {
+  @include mat-typography-level-to-styles($config, subheading-1);
+}
+
+.body-2, h6 {
+  @include mat-typography-level-to-styles($config, body-2);
+}
+
+.body-1, p {
+  @include mat-typography-level-to-styles($config, body-1);
+}
+
+.caption {
+  @include mat-typography-level-to-styles($config, caption);
+}

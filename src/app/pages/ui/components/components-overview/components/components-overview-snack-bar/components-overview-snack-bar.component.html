@@ -1,0 +1,30 @@
+<div class="card" fxLayout="column" fxLayout.gt-sm="row">
+  <div class="p-6">
+    <h2 class="title mt-0 mb-4">Preview</h2>
+    <div fxLayout="column" fxLayoutAlign="start center" fxLayoutGap="24px">
+      <button (click)="openSnackbar()" color="primary" mat-raised-button type="button">
+        TRIGGER SNACKBAR
+      </button>
+    </div>
+  </div>
+
+  <div class="border-l" fxFlex>
+    <div class="p-6">
+      <h2 class="title mt-0 mb-4">Snack Bar</h2>
+      <h4 class="body-2 text-secondary m-0">&lt;mat-snack-bar&gt;</h4>
+    </div>
+
+    <mat-tab-group class="vex-tabs">
+      <mat-tab label="DESCRIPTION">
+        <p class="p-6">
+          Snackbars contain a single line of text directly related to the operation performed. They may contain a text
+          action, but no icons.
+        </p>
+      </mat-tab>
+      <mat-tab label="SOURCE CODE">
+        <pre><code [vexHighlight]="snackbarHTML"></code></pre>
+      </mat-tab>
+    </mat-tab-group>
+  </div>
+</div>
+

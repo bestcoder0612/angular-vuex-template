@@ -1,0 +1,47 @@
+<div class="w-full h-full flex flex-col">
+  <div class="px-gutter pt-6 pb-20 bg-primary-500 flex-none">
+    <div class="flex items-center" vexContainer>
+      <button (click)="openMenu()" @scaleIn class="sm:hidden text-primary-contrast-500" mat-icon-button type="button">
+        <mat-icon [icIcon]="icMenu"></mat-icon>
+      </button>
+      <h2 class="headline text-primary-contrast-500 m-0 flex items-center w-full max-w-xxxs mr-6">
+        <ic-icon @scaleIn [icon]="icContacts" class="hidden sm:block"></ic-icon>
+        <span @fadeInRight class="ml-4 block">Contacts</span>
+      </h2>
+
+      <div class="hidden sm:flex items-center bg-card rounded-full overflow-hidden relative ltr:pl-5 rtl:pr-5 h-12 max-w-md w-full shadow-8 mx-auto">
+        <ic-icon [icon]="icSearch" class="text-secondary flex-none" size="24px"></ic-icon>
+        <input [formControl]="searchCtrl"
+               class="border-0 h-12 outline-none ltr:pl-4 rtl:pr-4 placeholder:text-secondary bg-card flex-auto"
+               placeholder="Search Contacts..."
+               type="text"/>
+      </div>
+    </div>
+  </div>
+
+  <div class="-mt-14 pt-0 overflow-hidden flex" vexContainer>
+
+    <mat-drawer-container class="bg-transparent flex-auto flex">
+      <mat-drawer [(opened)]="menuOpen" mode="over">
+        <vex-contacts-table-menu (filterChange)="setData($event)"
+                                 (openAddNew)="openContact()"
+                                 class="sm:hidden"></vex-contacts-table-menu>
+      </mat-drawer>
+      <mat-drawer-content class="p-gutter pt-0 flex-auto flex items-start">
+        <vex-contacts-table-menu (filterChange)="setData($event)"
+                                 (openAddNew)="openContact()"
+                                 class="hidden sm:block mr-6"></vex-contacts-table-menu>
+
+        <div class="card h-full overflow-hidden flex-auto">
+          <vex-contacts-data-table (openContact)="openContact($event)"
+                                   (toggleStar)="toggleStar($event)"
+                                   [columns]="tableColumns"
+                                   [data]="tableData"
+                                   [searchStr]="searchStr$ | async"></vex-contacts-data-table>
+        </div>
+      </mat-drawer-content>
+
+    </mat-drawer-container>
+  </div>
+</div>
+

@@ -1,0 +1,429 @@
+<vex-secondary-toolbar current="Form Elements">
+  <vex-breadcrumbs [crumbs]="['Forms', 'Form Elements']" fxFlex="auto"></vex-breadcrumbs>
+
+  <button class="ml-2" color="primary" mat-icon-button type="button">
+    <mat-icon [icIcon]="icMoreVert"></mat-icon>
+  </button>
+</vex-secondary-toolbar>
+
+
+<div [@stagger]="true" class="p-gutter" vexContainer>
+
+  <div fxLayout="row" fxLayout.lt-md="column" fxLayoutGap="20px">
+    <div @fadeInUp class="card" fxFlex="auto">
+      <div class="px-6 py-4 border-b" fxLayout="row" fxLayoutAlign="start center">
+        <h2 class="title m-0">Basic Forms</h2>
+      </div>
+
+      <div class="px-6 py-4" fxLayout="column">
+        <mat-form-field>
+          <mat-label>Company</mat-label>
+          <input matInput required>
+        </mat-form-field>
+
+        <div fxLayout="row" fxLayout.lt-sm="column" fxLayoutGap="16px" fxLayoutGap.lt-sm="0">
+          <mat-form-field fxFlex="auto">
+            <mat-label>First Name</mat-label>
+            <input matInput>
+          </mat-form-field>
+          <mat-form-field fxFlex="auto">
+            <mat-label>Last Name</mat-label>
+            <input matInput required>
+          </mat-form-field>
+        </div>
+
+        <mat-form-field>
+          <mat-label>State</mat-label>
+          <mat-select>
+            <mat-option>New York</mat-option>
+            <mat-option>Washington</mat-option>
+            <mat-option>Florida</mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-label>Password</mat-label>
+          <input [type]="inputType" matInput required value="Hello!">
+          <button (click)="togglePassword()" mat-icon-button matSuffix type="button">
+            <mat-icon *ngIf="visible" [icIcon]="icVisibility"></mat-icon>
+            <mat-icon *ngIf="!visible" [icIcon]="icVisibilityOff"></mat-icon>
+          </button>
+          <mat-hint>Try clicking the eye to toggle the visibility.</mat-hint>
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-label>Disabled</mat-label>
+          <input disabled matInput>
+        </mat-form-field>
+
+        <div fxLayout="row" fxLayoutAlign="end center" fxLayoutGap="8px">
+          <button mat-button type="button">CANCEL</button>
+          <button color="primary" mat-raised-button type="button">SUBMIT</button>
+        </div>
+      </div>
+    </div>
+
+    <div @fadeInUp class="card overflow-hidden" fxFlex="auto">
+      <div class="px-6 py-4 border-b" fxLayout="row" fxLayoutAlign="start center">
+        <h2 class="title m-0">Advanced Forms</h2>
+      </div>
+
+      <div class="px-6 py-4" fxLayout="column">
+        <mat-form-field>
+          <mat-label>Select a State</mat-label>
+          <input [formControl]="stateCtrl" [matAutocomplete]="auto" matInput>
+          <mat-autocomplete #auto="matAutocomplete">
+            <mat-option *ngFor="let state of filteredStates$ | async" [value]="state.name">
+              <img [src]="state.flag" class="align-middle mr-4 shadow-6" height="25">
+              <span class="body-1">{{ state.name }}</span>
+              <span class="text-hint"> | </span>
+              <span class="caption text-secondary">Population: {{ state.population }}</span>
+            </mat-option>
+          </mat-autocomplete>
+
+          <button class="text-secondary" mat-icon-button matSuffix type="button">
+            <mat-icon [icIcon]="icArrowDropDown"></mat-icon>
+          </button>
+
+          <mat-hint>Add this hint for a better UX!</mat-hint>
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-label>Username</mat-label>
+          <input matInput value="DavidSmith">
+          <mat-icon [icIcon]="icPerson" matSuffix></mat-icon>
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-label>Mobile Phone</mat-label>
+          <input matInput required>
+          <mat-icon [icIcon]="icSmartphone" class="mr-2" matPrefix></mat-icon>
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-label>Hint Label and Max Length</mat-label>
+          <input #lengthHint matInput maxlength="10" required>
+          <mat-hint align="start">Try to type in more than 10 letters</mat-hint>
+          <mat-hint align="end">{{lengthHint.value.length}}/10</mat-hint>
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-label>Birthdate</mat-label>
+          <input [matDatepicker]="datepickerRef" matInput>
+          <mat-datepicker-toggle [for]="datepickerRef" matSuffix></mat-datepicker-toggle>
+          <mat-datepicker #datepickerRef></mat-datepicker>
+          <mat-hint>Click on the icon to the right for a Datepicker</mat-hint>
+        </mat-form-field>
+
+        <div fxLayout="row" fxLayoutAlign="end center" fxLayoutGap="8px">
+          <button mat-button type="button">CANCEL</button>
+          <button color="primary" mat-raised-button type="button">SUBMIT</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="mt-5" fxLayout="row" fxLayout.lt-md="column" fxLayoutGap="20px">
+    <div @fadeInUp class="card" fxFlex="auto">
+      <div class="px-6 py-4 border-b" fxLayout="row" fxLayoutAlign="start center">
+        <h2 class="title m-0">Fill Input Style</h2>
+      </div>
+
+      <div class="px-6 pt-4 pb-0" fxLayout="column">
+        <mat-form-field appearance="fill" class="vex-flex-form-field" color="primary">
+          <mat-label>Primary Color</mat-label>
+          <input matInput>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill" class="vex-flex-form-field" color="accent">
+          <mat-label>Accent Color</mat-label>
+          <input matInput>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill" class="vex-flex-form-field" color="warn">
+          <mat-label>Warn Color</mat-label>
+          <input matInput>
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div @fadeInUp class="card" fxFlex="auto">
+      <div class="px-6 py-4 border-b" fxLayout="row" fxLayoutAlign="start center">
+        <h2 class="title m-0">Outline Input Style</h2>
+      </div>
+
+      <div class="px-6 pt-4 pb-0" fxLayout="column">
+        <mat-form-field appearance="outline" class="vex-flex-form-field" color="primary">
+          <mat-label>Primary Color</mat-label>
+          <input matInput>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="vex-flex-form-field" color="accent">
+          <mat-label>Accent Color</mat-label>
+          <input matInput>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="vex-flex-form-field" color="warn">
+          <mat-label>Warn Color</mat-label>
+          <input matInput>
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div @fadeInUp class="card" fxFlex="auto">
+      <div class="px-6 py-4 border-b" fxLayout="row" fxLayoutAlign="start center">
+        <h2 class="title m-0">Standard Input Style</h2>
+      </div>
+
+      <div class="px-6 pt-4 pb-0" fxLayout="column">
+        <mat-form-field appearance="standard" class="vex-flex-form-field" color="primary">
+          <mat-label>Primary Color</mat-label>
+          <input matInput>
+        </mat-form-field>
+
+        <mat-form-field appearance="standard" class="vex-flex-form-field" color="accent">
+          <mat-label>Accent Color</mat-label>
+          <input matInput>
+        </mat-form-field>
+
+        <mat-form-field appearance="standard" class="vex-flex-form-field" color="warn">
+          <mat-label>Warn Color</mat-label>
+          <input matInput>
+        </mat-form-field>
+      </div>
+    </div>
+  </div>
+
+  <div class="mt-5" fxLayout="row" fxLayout.lt-md="column" fxLayoutGap="20px">
+    <div @fadeInUp class="card" fxFlex="auto">
+      <div class="px-6 py-4 border-b" fxLayout="row" fxLayoutAlign="start center">
+        <h2 class="title m-0">Form Prefix & Suffix</h2>
+      </div>
+
+      <div class="px-6 py-4" fxLayout="column">
+        <p class="mt-0 mb-4 text-secondary">
+          Add a Prefix and Suffix to an input field, from text to icons or symbols, anything and any element can be set
+          as prefix or suffix.
+        </p>
+
+        <mat-form-field>
+          <mat-icon [icIcon]="icPhone" class="mr-2" matPrefix></mat-icon>
+          <mat-label>Input with prefix icon</mat-label>
+          <input matInput>
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-label>Input with suffix icon</mat-label>
+          <input matInput>
+          <mat-icon [icIcon]="icMenu" matSuffix></mat-icon>
+        </mat-form-field>
+
+        <mat-form-field>
+          <span matPrefix>http:// &nbsp;</span>
+          <mat-label>Input with prefix text and suffix icon</mat-label>
+          <input matInput>
+          <mat-icon [icIcon]="icCamera" matSuffix></mat-icon>
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div @fadeInUp class="card" fxFlex="auto">
+      <div class="px-6 py-4 border-b" fxLayout="row" fxLayoutAlign="start center">
+        <h2 class="title m-0">Form Hint Label</h2>
+      </div>
+
+      <div class="px-6 py-4" fxLayout="column">
+        <p class="mt-0 mb-4 text-secondary">
+          When you need to display additional information to the user you can use Hint Labels to display information
+          appropriately.
+        </p>
+
+        <mat-form-field>
+          <mat-label>Email Address</mat-label>
+          <input matInput>
+          <mat-hint>e.g. david@example.com</mat-hint>
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-label>Domain Name</mat-label>
+          <input #hintLabelInputRef matInput>
+          <mat-hint align="end">http://{{hintLabelInputRef.value || "company"}}.example.com</mat-hint>
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-label>Dynamic Hint Label</mat-label>
+          <input #hintLabelInputLengthRef matInput maxlength="10">
+          <mat-hint align="start">Try to type in more than 10 letters</mat-hint>
+          <mat-hint align="end">{{hintLabelInputLengthRef.value.length}}/10</mat-hint>
+        </mat-form-field>
+      </div>
+    </div>
+  </div>
+
+  <div class="mt-5" fxLayout="row" fxLayout.lt-md="column" fxLayoutGap="20px">
+    <div @fadeInUp class="card" fxFlex="auto">
+      <div class="px-6 py-4 border-b" fxLayout="row" fxLayoutAlign="start center">
+        <h2 class="title m-0">Form Select</h2>
+      </div>
+
+      <div class="px-6 py-4" fxLayout="column">
+        <p class="mt-0 mb-4 text-secondary" fxFlex="none">
+          A intuitive select component that displays the current position you are at and has smooth animations.
+        </p>
+
+        <mat-form-field fxFlex="none">
+          <mat-label>Favorite fruit</mat-label>
+          <mat-select>
+            <mat-option value="Apples">Apples</mat-option>
+            <mat-option value="Peaches">Peaches</mat-option>
+            <mat-option value="Bananas">Bananas</mat-option>
+            <mat-option value="Mango">Mango</mat-option>
+            <mat-option value="Apples">Cucumber</mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <mat-form-field [color]="selectCtrl.value" fxFlex="none">
+          <mat-label>Themeable Colors</mat-label>
+          <mat-select [formControl]="selectCtrl">
+            <mat-option value="primary">Primary Color</mat-option>
+            <mat-option value="accent">Accent Color</mat-option>
+            <mat-option value="warn">Warn Color</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div @fadeInUp class="card" fxFlex="auto">
+      <div class="px-6 py-4 border-b" fxLayout="row" fxLayoutAlign="start center">
+        <h2 class="title m-0">Form Datepicker</h2>
+      </div>
+
+      <div class="px-6 py-4" fxLayout="column">
+        <p class="mt-0 mb-4 text-secondary">
+          A Material styled Datepicker that allows for easy selection of any date with any format.
+        </p>
+
+        <mat-form-field>
+          <mat-label>Select your date</mat-label>
+          <input (click)="formDatepickerRef.open()"
+                 (focus)="formDatepickerRef.open()"
+                 [matDatepicker]="formDatepickerRef"
+                 matInput
+                 readonly>
+          <mat-datepicker-toggle [for]="formDatepickerRef" matSuffix></mat-datepicker-toggle>
+          <mat-hint>Click on the input or the datepicker icon</mat-hint>
+          <mat-datepicker #formDatepickerRef></mat-datepicker>
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div @fadeInUp class="card" fxFlex="auto">
+      <div class="px-6 py-4 border-b" fxLayout="row" fxLayoutAlign="start center">
+        <h2 class="title m-0">Form Slider</h2>
+      </div>
+
+      <div class="px-6 py-4" fxLayout="column">
+        <p class="mt-0 mb-4 text-secondary">
+          An component similiar to the range input with better usability and drag & drop + keyboard support.
+        </p>
+
+        <mat-slider [max]="100" [min]="0" [step]="1" [thumbLabel]="true" [tickInterval]="10" value="36"></mat-slider>
+        <mat-slider [max]="10" [min]="0" [step]="1" color="primary" value="6"></mat-slider>
+        <mat-slider [max]="10" [min]="0" [step]="1" color="warn" value="7"></mat-slider>
+      </div>
+    </div>
+  </div>
+
+  <div class="mt-5" fxLayout="row" fxLayout.lt-md="column" fxLayoutGap="20px">
+    <div @fadeInUp class="card" fxFlex="auto">
+      <div class="px-6 py-4 border-b" fxLayout="row" fxLayoutAlign="start center">
+        <h2 class="title m-0">Form Radio Button</h2>
+      </div>
+
+      <div class="px-6 py-4" fxLayout="column">
+        <p class="mt-0 mb-4 text-secondary">
+          When you need a user to decide between multiple options and have him only choose one, you can use a radio
+          button.
+        </p>
+
+        <div fxLayout="column" fxLayoutGap="16px">
+          <mat-radio-group fxLayout="row" fxLayoutGap="16px">
+            <mat-radio-button [checked]="true" value="Apples">Apples</mat-radio-button>
+            <mat-radio-button value="Peaches">Peaches</mat-radio-button>
+          </mat-radio-group>
+          <mat-radio-group color="accent" fxLayout="row" fxLayoutGap="16px">
+            <mat-radio-button [checked]="true" color="primary" value="primary">Primary Color
+            </mat-radio-button>
+            <mat-radio-button color="accent" value="accent">Accent Color</mat-radio-button>
+            <mat-radio-button color="warn" value="warn">Warn Color</mat-radio-button>
+          </mat-radio-group>
+        </div>
+      </div>
+    </div>
+
+    <div @fadeInUp class="card" fxFlex="auto">
+      <div class="px-6 py-4 border-b" fxLayout="row" fxLayoutAlign="start center">
+        <h2 class="title m-0">Form Slide Toggle</h2>
+      </div>
+
+      <div class="px-6 py-4" fxLayout="column">
+        <p class="mt-0 mb-4 text-secondary">
+          Allow the user to slide toggle an option or a value. You can either click or you can drag & drop the slide to
+          change its state.
+        </p>
+
+        <div fxLayout="row" fxLayoutAlign="space-between">
+          <div fxLayout="column" fxLayoutGap="8px">
+            <mat-slide-toggle [checked]="false">Slide Me</mat-slide-toggle>
+            <mat-slide-toggle [checked]="false">Drag & Drop</mat-slide-toggle>
+            <mat-slide-toggle [checked]="true">I Agree</mat-slide-toggle>
+          </div>
+          <div fxLayout="column" fxLayoutAlign="start end" fxLayoutGap="8px">
+            <mat-slide-toggle [checked]="true" color="primary" labelPosition="before">Primary Color
+            </mat-slide-toggle>
+            <mat-slide-toggle [checked]="true" color="accent" labelPosition="before">Accent Color</mat-slide-toggle>
+            <mat-slide-toggle [checked]="true" color="warn" labelPosition="before">Warn Color</mat-slide-toggle>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="mt-5" fxLayout="row" fxLayout.lt-md="column" fxLayoutGap="20px">
+    <div @fadeInUp class="card" fxFlex="auto">
+      <div class="px-6 py-4 border-b" fxLayout="row" fxLayoutAlign="start center">
+        <h2 class="title m-0">Form Checkbox</h2>
+      </div>
+
+      <div class="px-6 py-4" fxLayout="column">
+        <p class="mt-0 mb-4 text-secondary">
+          Allow for simple selecting and deselecting of options.
+        </p>
+
+        <div fxLayout="column" fxLayoutGap="8px">
+          <mat-checkbox [checked]="true">Stay signed in</mat-checkbox>
+          <mat-checkbox [indeterminate]="true">Indeterminate</mat-checkbox>
+          <mat-checkbox [checked]="false" align="end">Align end</mat-checkbox>
+        </div>
+      </div>
+    </div>
+
+    <div @fadeInUp class="card" fxFlex="auto">
+      <div class="px-6 py-4 border-b" fxLayout="row" fxLayoutAlign="start center">
+        <h2 class="title m-0">Form Checkbox Theming</h2>
+      </div>
+
+      <div class="px-6 py-4" fxLayout="column">
+        <p class="mt-0 mb-4 text-secondary">
+          Style checkbox elements with the Theme API.
+        </p>
+
+        <div fxLayout="column" fxLayoutGap="8px">
+          <mat-checkbox [checked]="true" color="primary">Primary Color</mat-checkbox>
+          <mat-checkbox [checked]="true" color="accent">Accent Color</mat-checkbox>
+          <mat-checkbox [checked]="true" color="warn">Warn Color</mat-checkbox>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

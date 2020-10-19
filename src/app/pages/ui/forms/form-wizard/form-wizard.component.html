@@ -1,0 +1,304 @@
+<vex-secondary-toolbar current="Form Wizard">
+  <vex-breadcrumbs [crumbs]="['Forms', 'Form Wizard']" fxFlex="auto"></vex-breadcrumbs>
+
+  <button class="ml-2" color="primary" mat-icon-button type="button">
+    <mat-icon [icIcon]="icMoreVert"></mat-icon>
+  </button>
+</vex-secondary-toolbar>
+
+<div @stagger class="p-gutter" vexContainer>
+
+  <h2 class="title mb-4" fxLayout="row" fxLayoutAlign="start center">
+    <span @scaleIn
+          [style.background-color]="theme.colors.primary['500'] | colorFade:0.9"
+          class="w-10 h-10 rounded-full text-primary-500 mr-3 flex items-center justify-center">
+      <ic-icon [icon]="icDescription" height="20px" width="20px"></ic-icon>
+    </span>
+    <span @fadeInRight class="block">Horizontal Form Wizard</span>
+  </h2>
+
+  <div @fadeInUp class="card overflow-hidden">
+    <mat-horizontal-stepper #stepper="matHorizontalStepper" [linear]="true">
+      <ng-template matStepperIcon="edit">
+        <mat-icon [icIcon]="icDoneAll"></mat-icon>
+      </ng-template>
+
+      <ng-template matStepperIcon="done">
+        <mat-icon [icIcon]="icDoneAll"></mat-icon>
+      </ng-template>
+
+      <mat-step [stepControl]="accountFormGroup">
+        <form [formGroup]="accountFormGroup">
+          <ng-template matStepLabel>Create Account</ng-template>
+
+          <h2 class="title m-0">Create Account</h2>
+          <div class="subheading-1">Set up your account for testing purposes.</div>
+
+          <div class="mt-4" fxLayout="column" fxLayoutGap="8px">
+            <mat-form-field fxFlex="auto">
+              <mat-label>Account Username</mat-label>
+              <input formControlName="username" matInput required>
+              <mat-hint>This will be your unique login name.</mat-hint>
+            </mat-form-field>
+
+            <mat-form-field fxFlex="auto">
+              <mat-label>Name</mat-label>
+              <input formControlName="name" matInput required>
+              <mat-hint>How may we call you?</mat-hint>
+            </mat-form-field>
+
+            <div fxLayout="column" fxLayout.gt-xs="row" fxLayoutGap="8px" fxLayoutGap.gt-xs="24px">
+              <mat-form-field fxFlex="auto">
+                <mat-label>E-Mail</mat-label>
+                <input formControlName="email" matInput required>
+                <mat-hint align="end">example@example.com</mat-hint>
+              </mat-form-field>
+
+              <div fxFlex="auto" fxLayout="row" fxLayoutGap="8px">
+                <mat-form-field class="vex-flex-form-field" fxFlex="none">
+                  <mat-label>Code</mat-label>
+                  <mat-select formControlName="phonePrefix">
+                    <mat-option *ngFor="let option of phonePrefixOptions" [value]="option">{{ option }}</mat-option>
+                  </mat-select>
+                </mat-form-field>
+
+                <mat-form-field class="vex-flex-form-field" fxFlex="auto">
+                  <mat-label>Phone Number</mat-label>
+                  <input formControlName="phone" matInput>
+                  <mat-hint align="end"></mat-hint>
+                </mat-form-field>
+              </div>
+            </div>
+          </div>
+
+          <div class="actions" fxLayout="row" fxLayoutAlign="end center" fxLayoutGap="8px">
+            <button (click)="stepper.reset()" [disabled]="accountFormGroup.pristine" color="primary" mat-button
+                    type="button">RESET
+            </button>
+            <button [disabled]="accountFormGroup.invalid" color="primary" mat-raised-button matStepperNext>NEXT
+            </button>
+          </div>
+        </form>
+      </mat-step>
+
+      <mat-step [stepControl]="passwordFormGroup">
+        <form [formGroup]="passwordFormGroup">
+          <ng-template matStepLabel>Select a Password</ng-template>
+
+          <h2 class="title m-0">Select a Password</h2>
+          <div class="subheading-1">Enter your password you will use to log in.</div>
+
+          <div class="mt-4" fxLayout="column" fxLayoutGap="8px">
+            <mat-form-field fxFlex="auto">
+              <mat-label>Password</mat-label>
+              <input [type]="passwordInputType" formControlName="password" matInput required>
+              <button (click)="showPassword()" *ngIf="passwordInputType === 'password'" mat-icon-button matSuffix
+                      type="button">
+                <mat-icon [icIcon]="icVisibility"></mat-icon>
+              </button>
+              <button (click)="hidePassword()" *ngIf="passwordInputType === 'text'" mat-icon-button matSuffix
+                      type="button">
+                <mat-icon [icIcon]="icVisibilityOff"></mat-icon>
+              </button>
+              <mat-hint>Your password should be atleast 6 characters long.</mat-hint>
+            </mat-form-field>
+
+            <mat-form-field fxFlex="auto">
+              <mat-label>Confirm Password</mat-label>
+              <input [type]="passwordInputType" formControlName="passwordConfirm" matInput required>
+              <button (click)="showPassword()" *ngIf="passwordInputType === 'password'" mat-icon-button matSuffix
+                      type="button">
+                <mat-icon [icIcon]="icVisibility"></mat-icon>
+              </button>
+              <button (click)="hidePassword()" *ngIf="passwordInputType === 'text'" mat-icon-button matSuffix
+                      type="button">
+                <mat-icon [icIcon]="icVisibilityOff"></mat-icon>
+              </button>
+              <mat-hint>Please type in your password again.</mat-hint>
+            </mat-form-field>
+          </div>
+
+          <div class="actions" fxLayout="row" fxLayoutAlign="end center" fxLayoutGap="8px">
+            <button color="primary" mat-button matStepperPrevious type="button">PREVIOUS</button>
+            <button [disabled]="passwordFormGroup.invalid" color="primary" mat-raised-button matStepperNext>NEXT
+            </button>
+          </div>
+        </form>
+      </mat-step>
+
+      <mat-step [stepControl]="confirmFormGroup">
+        <form [formGroup]="confirmFormGroup">
+          <ng-template matStepLabel>Confirm Creation</ng-template>
+
+          <div class="title m-0">You're almost there!</div>
+          <div class="subheading-1">To finish registration, accept our terms of service and click on "Create Account".
+          </div>
+
+          <div class="mt-4" fxLayout="column" fxLayoutGap="8px">
+            <mat-checkbox class="checkbox" formControlName="terms">
+              I agree to the terms of service and the usual stuff. *
+            </mat-checkbox>
+          </div>
+
+          <div class="actions" fxLayout="row" fxLayoutAlign="end center" fxLayoutGap="8px">
+            <button color="primary" mat-button matStepperPrevious type="button">PREVIOUS</button>
+            <button (click)="submit()" [disabled]="confirmFormGroup.invalid" color="primary" mat-raised-button
+                    matStepperNext>
+              CREATE ACCOUNT
+            </button>
+          </div>
+        </form>
+
+      </mat-step>
+    </mat-horizontal-stepper>
+  </div>
+
+  <h2 class="title mt-6 mb-4" fxLayout="row" fxLayoutAlign="start center">
+    <span @scaleIn
+          [style.background-color]="theme.colors.primary['500'] | colorFade:0.9"
+          class="w-10 h-10 rounded-full text-primary-500 mr-3 flex items-center justify-center">
+      <ic-icon [icon]="icVerticalSplit" height="20px" width="20px"></ic-icon>
+    </span>
+    <span @fadeInRight class="block">Vertical Form Wizard</span>
+  </h2>
+
+  <div @fadeInUp class="card overflow-hidden">
+    <mat-vertical-stepper #verticalStepper="matVerticalStepper" [linear]="true">
+      <ng-template matStepperIcon="edit">
+        <mat-icon [icIcon]="icDoneAll"></mat-icon>
+      </ng-template>
+
+      <ng-template matStepperIcon="done">
+        <mat-icon [icIcon]="icDoneAll"></mat-icon>
+      </ng-template>
+
+      <mat-step [stepControl]="verticalAccountFormGroup">
+        <form [formGroup]="verticalAccountFormGroup">
+          <ng-template matStepLabel>Create Account</ng-template>
+
+          <div class="title m-0">Create Account</div>
+          <div class="subheading-1">Set up your account for testing purposes.</div>
+
+          <div class="mt-4" fxLayout="column" fxLayoutGap="8px">
+            <mat-form-field fxFlex="auto">
+              <mat-label>Account Username</mat-label>
+              <input formControlName="username" matInput required>
+              <mat-hint>This will be your unique login name.</mat-hint>
+            </mat-form-field>
+
+            <mat-form-field fxFlex="auto">
+              <mat-label>Name</mat-label>
+              <input formControlName="name" matInput required>
+              <mat-hint>How may we call you?</mat-hint>
+            </mat-form-field>
+
+            <div fxLayout="column" fxLayout.gt-xs="row" fxLayoutGap="8px" fxLayoutGap.gt-xs="24px">
+              <mat-form-field fxFlex="auto">
+                <mat-label>E-Mail</mat-label>
+                <input formControlName="email" matInput required>
+                <mat-hint align="end">example@example.com</mat-hint>
+              </mat-form-field>
+
+              <div fxFlex="auto" fxLayout="row" fxLayoutGap="8px">
+                <mat-form-field class="vex-flex-form-field" fxFlex="none">
+                  <mat-label>Code</mat-label>
+                  <mat-select formControlName="phonePrefix">
+                    <mat-option *ngFor="let option of phonePrefixOptions" [value]="option">{{ option }}</mat-option>
+                  </mat-select>
+                </mat-form-field>
+
+                <mat-form-field class="vex-flex-form-field" fxFlex="auto">
+                  <mat-label>Phone Number</mat-label>
+                  <input formControlName="phone" matInput>
+                  <mat-hint align="end"></mat-hint>
+                </mat-form-field>
+              </div>
+            </div>
+          </div>
+
+          <div class="actions" fxLayout="row" fxLayoutAlign="end center" fxLayoutGap="8px">
+            <button (click)="verticalStepper.reset()" [disabled]="verticalAccountFormGroup.pristine" color="primary"
+                    mat-button
+                    type="button">RESET
+            </button>
+            <button [disabled]="verticalAccountFormGroup.invalid" color="primary" mat-raised-button matStepperNext>
+              NEXT
+            </button>
+          </div>
+        </form>
+      </mat-step>
+
+      <mat-step [stepControl]="verticalPasswordFormGroup">
+        <form [formGroup]="verticalPasswordFormGroup">
+          <ng-template matStepLabel>Select a Password</ng-template>
+
+          <div class="title m-0">Select a Password</div>
+          <div class="subheading-1">Enter your password you will use to log in.</div>
+
+          <div class="mt-4" fxLayout="column" fxLayoutGap="8px">
+            <mat-form-field fxFlex="auto">
+              <mat-label>Password</mat-label>
+              <input [type]="passwordInputType" formControlName="password" matInput required>
+              <button (click)="showPassword()" *ngIf="passwordInputType === 'password'" mat-icon-button matSuffix
+                      type="button">
+                <mat-icon [icIcon]="icVisibility"></mat-icon>
+              </button>
+              <button (click)="hidePassword()" *ngIf="passwordInputType === 'text'" mat-icon-button matSuffix
+                      type="button">
+                <mat-icon [icIcon]="icVisibilityOff"></mat-icon>
+              </button>
+              <mat-hint>Your password should be atleast 6 characters long.</mat-hint>
+            </mat-form-field>
+
+            <mat-form-field fxFlex="auto">
+              <mat-label>Confirm Password</mat-label>
+              <input [type]="passwordInputType" formControlName="passwordConfirm" matInput required>
+              <button (click)="showPassword()" *ngIf="passwordInputType === 'password'" mat-icon-button matSuffix
+                      type="button">
+                <mat-icon [icIcon]="icVisibility"></mat-icon>
+              </button>
+              <button (click)="hidePassword()" *ngIf="passwordInputType === 'text'" mat-icon-button matSuffix
+                      type="button">
+                <mat-icon [icIcon]="icVisibilityOff"></mat-icon>
+              </button>
+              <mat-hint>Please type in your password again.</mat-hint>
+            </mat-form-field>
+          </div>
+
+          <div class="actions" fxLayout="row" fxLayoutAlign="end center" fxLayoutGap="8px">
+            <button color="primary" mat-button matStepperPrevious type="button">PREVIOUS</button>
+            <button [disabled]="verticalPasswordFormGroup.invalid" color="primary" mat-raised-button matStepperNext>
+              NEXT
+            </button>
+          </div>
+        </form>
+      </mat-step>
+
+      <mat-step [stepControl]="verticalConfirmFormGroup">
+        <form [formGroup]="verticalConfirmFormGroup">
+          <ng-template matStepLabel>Confirm Creation</ng-template>
+
+          <div class="title m-0">You're almost there!</div>
+          <div class="subheading-1">To finish registration, accept our terms of service and click on "Create Account".
+          </div>
+
+          <div class="mt-4" fxLayout="column" fxLayoutGap="8px">
+            <mat-checkbox class="checkbox" formControlName="terms">
+              I agree to the terms of service and the usual stuff. *
+            </mat-checkbox>
+          </div>
+
+          <div class="actions" fxLayout="row" fxLayoutAlign="end center" fxLayoutGap="8px">
+            <button color="primary" mat-button matStepperPrevious type="button">PREVIOUS</button>
+            <button (click)="submit()" [disabled]="verticalConfirmFormGroup.invalid" color="primary" mat-raised-button
+                    matStepperNext>
+              CREATE ACCOUNT
+            </button>
+          </div>
+        </form>
+
+      </mat-step>
+    </mat-vertical-stepper>
+  </div>
+</div>
+

@@ -1,0 +1,33 @@
+<div class="card" fxLayout="column" fxLayout.gt-sm="row">
+  <div class="p-6">
+    <h2 class="title mt-0 mb-4">Preview</h2>
+    <div fxLayout="column" fxLayoutAlign="start center" fxLayoutGap="24px">
+      <mat-slide-toggle [checked]="true"></mat-slide-toggle>
+      <mat-slide-toggle [checked]="true" color="primary"></mat-slide-toggle>
+      <mat-slide-toggle [checked]="true" color="accent"></mat-slide-toggle>
+      <mat-slide-toggle [checked]="true" color="warn"></mat-slide-toggle>
+      <mat-slide-toggle disabled></mat-slide-toggle>
+    </div>
+  </div>
+
+  <div class="border-l" fxFlex>
+    <div class="p-6">
+      <h2 class="title mt-0 mb-4">Slide Toggle</h2>
+      <h4 class="body-2 text-secondary m-0">&lt;mat-slide-toggle&gt;</h4>
+    </div>
+
+    <mat-tab-group class="vex-tabs">
+      <mat-tab label="DESCRIPTION">
+        <p class="p-6">
+          On/off switches toggle the state of a single settings option. The option that the switch controls, as well as
+          the state it’s in, should be made clear from the corresponding inline label. Switches take on the same visual
+          properties of the radio button.
+        </p>
+      </mat-tab>
+      <mat-tab label="SOURCE CODE">
+        <pre><code [vexHighlight]="slideToggleHTML"></code></pre>
+      </mat-tab>
+    </mat-tab-group>
+  </div>
+</div>
+

@@ -1,0 +1,128 @@
+<div class="p-gutter container">
+  <div @fadeInUp class="card p-16">
+    <div fxLayout="row">
+      <div fxFlex="50%">
+        <img class="h-40" src="assets/img/demo/logo.svg">
+
+        <div class="mt-12">
+          <h4 class="body-2 text-secondary mt-0">RECIPIENT</h4>
+          <h3 class="title m-0">David Smith</h3>
+          <div class="text-secondary">
+            <p class="m-0">712 Clarkson Ave</p>
+            <p class="m-0">Brooklyn, NY</p>
+            <p class="m-0">11203, USA</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="text-right body-1" fxFlex="50%" fxLayout="column" fxLayoutAlign="start end">
+        <h1 class="display-2 m-0">INVOICE</h1>
+
+        <table class="mt-6">
+          <tbody>
+          <tr>
+            <td class="text-secondary body-2">INVOICE NO.</td>
+            <td class="text-left pl-4">2019/0592</td>
+          </tr>
+          <tr>
+            <td class="text-secondary body-2">INVOICE DATE</td>
+            <td class="text-left pl-4">10/04/2019</td>
+          </tr>
+          <tr>
+            <td class="text-secondary body-2">PROJECT NO.</td>
+            <td class="text-left pl-4">D-23-44</td>
+          </tr>
+          </tbody>
+        </table>
+
+        <div class="mt-12">
+          <h4 class="body-2 text-secondary mt-0">COMPANY</h4>
+          <h3 class="title m-0">IceCold Tech Ltd.</h3>
+          <div class="text-secondary">
+            <p class="m-0">907 Eastern Pkwy</p>
+            <p class="m-0">Brooklyn, NY</p>
+            <p class="m-0">11213, USA</p>
+
+            <p class="m-0 mt-3">
+              <ic-icon [icon]="icMail" class="mr-2" inline="true" size="1.25em"></ic-icon>
+              <span>hello@example.com</span>
+            </p>
+
+            <p class="m-0">
+              <ic-icon [icon]="icPhone" class="mr-2" inline="true" size="1.25em"></ic-icon>
+              <span>+1 (961) 400-3535</span>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <table class="table w-full mt-24">
+      <thead>
+      <tr>
+        <td class="body-2 text-secondary">SERVICE</td>
+        <td class="body-2 text-secondary">PRICE PER</td>
+        <td class="body-2 text-secondary">UNIT</td>
+        <td class="body-2 text-secondary">QUANTITY</td>
+        <td class="body-2 text-secondary text-right">TOTAL</td>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td class="py-6 border-b">New Dashboard Prototype, Design & Code</td>
+        <td class="py-6 border-b">$35.00</td>
+        <td class="py-6 border-b">Hour</td>
+        <td class="py-6 border-b">40</td>
+        <td class="py-6 border-b font-medium text-right">$1,400.00</td>
+      </tr>
+
+      <tr>
+        <td class="py-6 border-b">Graphic Pack - Monthly Subscription (includes Updates)</td>
+        <td class="py-6 border-b">$49.99</td>
+        <td class="py-6 border-b">User</td>
+        <td class="py-6 border-b">5</td>
+        <td class="py-6 border-b font-medium text-right">$249.95</td>
+      </tr>
+
+      <tr>
+        <td class="py-6 border-b">Logo & Branding Pack</td>
+        <td class="py-6 border-b">$499.99</td>
+        <td class="py-6 border-b">Piece</td>
+        <td class="py-6 border-b">1</td>
+        <td class="py-6 border-b font-medium text-right">$499.99</td>
+      </tr>
+
+      <tr>
+        <td class="py-6 border-b">Bug Fixes</td>
+        <td class="py-6 border-b">$15.00</td>
+        <td class="py-6 border-b">Hour</td>
+        <td class="py-6 border-b">10</td>
+        <td class="py-6 border-b font-medium text-right">$150.00</td>
+      </tr>
+      </tbody>
+    </table>
+
+    <div class="mt-8" fxLayout="column" fxLayoutAlign="start end">
+      <table class="subheading-2 font-medium pr-6">
+        <tbody>
+        <tr>
+          <td class="text-secondary text-right">SUBTOTAL</td>
+          <td class="pl-12">$2,299.94‬</td>
+        </tr>
+        <tr>
+          <td class="text-secondary text-right">TAX (19%)</td>
+          <td class="pl-12">$436.99‬</td>
+        </tr>
+        <tr>
+          <td class="text-secondary text-right">DISCOUNT (5%)</td>
+          <td class="pl-12">-$114.99‬</td>
+        </tr>
+        <tr>
+          <td class="headline font-medium text-right pt-6">TOTAL</td>
+          <td class="headline font-medium pl-12 pt-6">$2,621.94‬</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

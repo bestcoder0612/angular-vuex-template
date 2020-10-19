@@ -1,0 +1,65 @@
+<div class="bg-card py-16 px-gutter">
+  <h1 class="display-1 mt-12 mb-4 text-center">Guides</h1>
+  <h2 class="subheading-2 text-hint text-center max-w-lg mx-auto m-0">Even the all-powerful Pointing has no control
+    about the blind texts it is an almost unorthographic life One day</h2>
+</div>
+
+<div class="my-12 container"
+     gdAlignColumns="start start"
+     gdColumns="1fr 1fr"
+     gdColumns.lt-md="1fr"
+     gdGap="24px">
+
+  <div class="card max-w-full overflow-hidden p-3">
+    <mat-nav-list>
+      <h3 mat-subheader>First Steps</h3>
+      <a (click)="guide.onClick(guide)"
+         *ngFor="let guide of accountSettings; trackBy: trackById"
+         class="rounded overflow-hidden"
+         mat-list-item>
+        <mat-icon [icIcon]="guide.icon" mat-list-icon></mat-icon>
+        <span matLine>{{ guide.label }}</span>
+      </a>
+    </mat-nav-list>
+  </div>
+
+  <div class="card max-w-full overflow-hidden p-3">
+    <mat-nav-list>
+      <h3 mat-subheader>API Help</h3>
+      <a (click)="guide.onClick(guide)"
+         *ngFor="let guide of apiHelp; trackBy: trackById"
+         class="rounded overflow-hidden"
+         mat-list-item>
+        <mat-icon [icIcon]="guide.icon" mat-list-icon></mat-icon>
+        <span matLine>{{ guide.label }}</span>
+      </a>
+    </mat-nav-list>
+  </div>
+
+  <div class="card max-w-full overflow-hidden p-3">
+    <mat-nav-list>
+      <h3 mat-subheader>Billing</h3>
+      <a (click)="guide.onClick(guide)"
+         *ngFor="let guide of billing; trackBy: trackById"
+         class="rounded overflow-hidden"
+         mat-list-item>
+        <mat-icon [icIcon]="guide.icon" mat-list-icon></mat-icon>
+        <span matLine>{{ guide.label }}</span>
+      </a>
+    </mat-nav-list>
+  </div>
+
+  <div class="card max-w-full overflow-hidden p-3">
+    <mat-nav-list>
+      <h3 mat-subheader>First Steps</h3>
+      <a (click)="guide.onClick(guide)"
+         *ngFor="let guide of firstSteps; trackBy: trackById"
+         class="rounded overflow-hidden"
+         mat-list-item>
+        <mat-icon [icIcon]="guide.icon" mat-list-icon></mat-icon>
+        <span matLine>{{ guide.label }}</span>
+      </a>
+    </mat-nav-list>
+  </div>
+
+</div>

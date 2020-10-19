@@ -1,0 +1,79 @@
+<div class="w-full h-full overflow-hidden" fxLayout="column">
+  <div class="bg-app-bar p-4 border-b" fxFlex="none" fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="16px">
+    <div class="relative">
+      <img [src]="chat?.imageSrc" class="avatar" fxFlex="none">
+      <ic-icon *ngIf="chat?.status === 'Online'"
+               [icon]="icCheckCircle"
+               class="bg-card absolute -bottom-1 -right-1 rounded-full text-green-500"></ic-icon>
+    </div>
+
+    <div fxFlex="auto">
+      <div class="subheading-1">{{ chat?.from }}</div>
+      <div [class.text-green-500]="chat?.status === 'Online'"
+           class="caption leading-none text-secondary">{{ chat?.status }}</div>
+    </div>
+
+    <button [matMenuTriggerFor]="chatMenu"
+            mat-icon-button
+            style="width: 38px; height: 38px; line-height: 38px;"
+            type="button">
+      <mat-icon [icIcon]="icMoreVert" class="text-secondary"></mat-icon>
+    </button>
+  </div>
+
+  <div [@stagger]="messages.length" class="p-4" fxFlex="auto" fxLayout="column" vexScrollbar>
+    <ng-container *ngFor="let message of messages; trackBy: trackById">
+      <ng-container *ngIf="message.from === 'me'">
+        <div @fadeInUp class="max-w-3/4 me" fxFlexAlign="end" fxLayout="row">
+          <div class="m-1 mr-0 py-2 px-4 shadow-1 rounded-full bg-card">{{ message.message }}</div>
+        </div>
+      </ng-container>
+
+      <ng-container *ngIf="message.from === 'partner'">
+        <div @fadeInUp class="max-w-3/4 partner" fxFlexAlign="start" fxLayout="row">
+          <div class="m-1 mr-0 py-2 px-4 shadow-1 rounded-full bg-primary-500 text-primary-contrast-500">{{ message.message }}</div>
+        </div>
+      </ng-container>
+    </ng-container>
+  </div>
+
+  <div class="p-4 bg-app-bar border-t">
+    <form (ngSubmit)="send()" [formGroup]="form">
+      <div class="border rounded-full text-hint overflow-hidden bg-card ltr:pl-6 rtl:pr-6"
+           fxFlex="auto"
+           fxLayout="row"
+           fxLayoutAlign="start center">
+        <input class="outline-none border-0 h-12 w-240 placeholder:text-secondary body-1 bg-card"
+               formControlName="message"
+               fxFlex="auto"
+               placeholder="Type a message..."
+               type="text">
+        <button [class.text-primary-500]="form.get('message').value"
+                [disabled]="!form.get('message').value"
+                class="ltr:mr-4 rtl:ml-4 ltr:ml-3 rtl:mr-3"
+                mat-icon-button
+                type="submit">
+          <mat-icon [icIcon]="icSend"></mat-icon>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<mat-menu #chatMenu="matMenu" xPosition="after" yPosition="below">
+  <button mat-menu-item>
+    <mat-icon [icIcon]="icAccountCircle"></mat-icon>
+    <span>Contact Info</span>
+  </button>
+
+  <button mat-menu-item>
+    <mat-icon [icIcon]="icVolumeMute"></mat-icon>
+    <span>Mute Chat</span>
+  </button>
+
+  <button mat-menu-item>
+    <mat-icon [icIcon]="icClearAll"></mat-icon>
+    <span>Clear Messages</span>
+  </button>
+</mat-menu>
+

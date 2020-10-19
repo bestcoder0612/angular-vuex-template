@@ -1,0 +1,67 @@
+<div class="text-center py-24 header">
+  <div class="container">
+    <h2 @fadeInUp class="display-2 mt-16 mb-8">Hello, how can we help?</h2>
+    <div @fadeInUp
+         class="border rounded-full bg-card py-2 pl-6 pr-3 text-secondary max-w-xl mx-auto shadow-8"
+         fxLayout="row"
+         fxLayoutAlign="start center">
+      <ic-icon [icon]="icSearch" fxFlex="none" size="24px"></ic-icon>
+      <input class="border-0 ml-4 placeholder:text-secondary subheading-2 outline-none font-medium w-0 bg-card"
+             fxFlex="auto"
+             placeholder="Search for answers..."
+             type="text">
+      <button class="rounded-full" color="primary" fxFlex="none" mat-raised-button type="button">SEARCH</button>
+    </div>
+
+    <div @stagger
+         class="mt-24 -mb-16 mx-auto"
+         fxLayout="row"
+         fxLayout.xs="column"
+         fxLayoutGap="24px"
+         fxLayoutGap.xs="16px">
+      <a #rla="routerLinkActive"
+         *ngFor="let link of links; trackBy: trackByRoute"
+         @fadeInUp
+         [class.border-primary-500]="rla.isActive"
+         [routerLink]="link.route"
+         class="card block text-center p-6 hover:bg-app-bar trans-ease-out cursor-pointer relative no-underline text-dark border-2"
+         fxFlex
+         fxFlex.xs="auto"
+         fxLayout="column"
+         fxLayoutAlign="center center"
+         matRipple
+         routerLinkActive>
+        <ic-icon [class.text-primary-500]="rla.isActive" [icon]="link.icon" class="text-hint" size="42px"></ic-icon>
+        <h3 class="title mb-0 mt-4">{{ link.label }}</h3>
+      </a>
+    </div>
+  </div>
+</div>
+
+<router-outlet></router-outlet>
+
+<div class="bg-card py-16 px-gutter footer">
+  <h2 class="display-1 mt-0 mb-4 text-center">Still have questions?</h2>
+  <h3 class="subheading-2 text-hint text-center max-w-lg mx-auto m-0">A wonderful serenity has taken possession of my
+    entire
+    soul, like these sweet
+    mornings of spring which I enjoy with my whole heart.</h3>
+
+  <div class="mt-16 max-w-3xl mx-auto" fxLayout="row" fxLayout.xs="column" fxLayoutGap="24px">
+    <a class="text-center p-6 border rounded"
+       fxFlex
+       routerLinkActive>
+      <ic-icon [icon]="icPhoneInTalk" class="text-hint" size="42px"></ic-icon>
+      <h3 class="title mb-0 mt-4">+1 (840) 423-3404</h3>
+      <h4 class="subheading-2 m-0 text-hint">Call us anytime for a quick solution</h4>
+    </a>
+
+    <a class="text-center p-6 border rounded"
+       fxFlex
+       routerLinkActive>
+      <ic-icon [icon]="icMail" class="text-hint" size="42px"></ic-icon>
+      <h3 class="title mb-0 mt-4">support@example.com</h3>
+      <h4 class="subheading-2 m-0 text-hint">Send us a mail to resolve your issue</h4>
+    </a>
+  </div>
+</div>

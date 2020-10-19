@@ -1,0 +1,33 @@
+<div class="card" fxLayout="column" fxLayout.gt-sm="row">
+  <div class="p-6">
+    <h2 class="title mt-0 mb-4">Preview</h2>
+    <div fxLayout="column" fxLayoutAlign="start center" fxLayoutGap="24px">
+      <mat-progress-bar [value]="40" mode="determinate"></mat-progress-bar>
+      <mat-progress-bar color="accent" mode="indeterminate"></mat-progress-bar>
+      <mat-progress-bar color="accent" mode="buffer"></mat-progress-bar>
+      <mat-progress-bar color="warn" mode="query"></mat-progress-bar>
+    </div>
+  </div>
+
+  <div class="border-l" fxFlex>
+    <div class="p-6">
+      <h2 class="title mt-0 mb-4">Progress Bar</h2>
+      <h4 class="body-2 text-secondary m-0">&lt;mat-progress-bar&gt;</h4>
+    </div>
+
+    <mat-tab-group class="vex-tabs">
+      <mat-tab label="DESCRIPTION">
+        <p class="p-6">
+          A linear progress indicator should always fill from 0% to 100% and never decrease in value. It should be
+          represented by bars on the edge of a header or sheet that appear and disappear.
+          <br>For multiple operations happening in sequence, use the indicator to represent the progress as a whole, and
+          not each individual operation.
+        </p>
+      </mat-tab>
+      <mat-tab label="SOURCE CODE">
+        <pre><code [vexHighlight]="progressHTML"></code></pre>
+      </mat-tab>
+    </mat-tab-group>
+  </div>
+</div>
+

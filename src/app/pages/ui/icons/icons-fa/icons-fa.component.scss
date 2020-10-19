@@ -1,0 +1,28 @@
+.icon-container {
+  display: inline-block !important;
+  margin-top: 24px;
+  overflow: hidden;
+  padding-left: var(--padding-gutter);
+  padding-right: var(--padding-gutter);
+  width: 50%;
+
+  @screen sm {
+    width: 25%;
+  }
+
+  .body-2 {
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+
+.icon {
+  color: inherit;
+}
+
+:host {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  min-height: 0;
+}

@@ -1,0 +1,56 @@
+<div class="h-full flex flex-col">
+  <div class="px-gutter pt-6 pb-0 bg-card shadow-b flex-none">
+    <div vexContainer>
+      <h1 class="display-1 mt-0 mb-4" fxLayout="row" fxLayoutAlign="start center">
+    <span @scaleIn
+          [style.background-color]="theme.colors.primary['500'] | colorFade:0.9"
+          class="w-12 h-12 rounded-full text-primary-500 ltr:mr-4 rtl:ml-4 flex items-center justify-center">
+      <ic-icon [icon]="icStar" size="24px"></ic-icon>
+      </span>
+        <span @fadeInRight class="block">Icons</span>
+      </h1>
+
+      <div fxLayout="row" fxLayoutAlign="start center">
+        <nav class="vex-tabs border-0" fxFlex="auto" mat-tab-nav-bar>
+          <a #rla="routerLinkActive"
+             *ngFor="let link of links"
+             [active]="rla.isActive"
+             [disabled]="link.disabled"
+             [routerLink]="link.route"
+             mat-tab-link
+             queryParamsHandling="preserve"
+             routerLinkActive>
+            {{ link.label }}
+          </a>
+        </nav>
+
+        <input #colorInput [formControl]="colorCtrl" class="hidden" type="color">
+        <button (click)="colorInput.click()"
+                color="primary"
+                fxFlex="none"
+                mat-icon-button
+                matTooltip="Change Icon ColorDef"
+                type="button">
+          <mat-icon [icIcon]="icFormatColorFill"></mat-icon>
+        </button>
+
+        <div class="border rounded-full text-hint overflow-hidden bg-card ml-2"
+             fxFlex="none"
+             fxHide.xs
+             fxLayout="row"
+             fxLayoutAlign="start center">
+          <ic-icon [icon]="icSearch" class="ml-4 mr-3" size="18px"></ic-icon>
+          <input [formControl]="searchCtrl"
+                 class="outline-none border-0 h-10 placeholder:text-secondary body-1 bg-card"
+                 fxFlex="auto"
+                 placeholder="Search Icons..."
+                 type="text">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div [style.color]="color$ | async" class="flex flex-col flex-auto">
+    <router-outlet></router-outlet>
+  </div>
+</div>

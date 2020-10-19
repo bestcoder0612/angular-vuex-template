@@ -1,0 +1,59 @@
+<div class="w-full h-full bg-pattern" fxLayout="column" fxLayoutAlign="center center">
+  <div @fadeInUp class="card overflow-hidden w-full max-w-xs">
+    <div class="p-6 pb-0" fxLayout="column" fxLayoutAlign="center center">
+      <div class="fill-current text-center">
+        <img class="w-16" src="assets/img/demo/logo.svg">
+      </div>
+    </div>
+
+    <div class="text-center mt-4">
+      <h2 class="title m-0">Register for an account</h2>
+      <h4 class="body-2 text-secondary m-0">Simply fill out the form below</h4>
+    </div>
+
+    <div [formGroup]="form" class="p-6" fxLayout="column" fxLayoutGap="16px">
+      <div fxFlex="auto" fxLayout="column">
+        <mat-form-field fxFlex="grow">
+          <mat-label>Name</mat-label>
+          <input formControlName="name" matInput required>
+        </mat-form-field>
+
+        <mat-form-field fxFlex="grow">
+          <mat-label>E-Mail</mat-label>
+          <input formControlName="email" matInput required>
+        </mat-form-field>
+
+        <mat-form-field fxFlex="grow">
+          <mat-label>Password</mat-label>
+          <input [type]="inputType" formControlName="password" matInput required>
+          <button (click)="toggleVisibility()" mat-icon-button matSuffix matTooltip="Toggle Visibility" type="button">
+            <mat-icon *ngIf="visible" [icIcon]="icVisibility"></mat-icon>
+            <mat-icon *ngIf="!visible" [icIcon]="icVisibilityOff"></mat-icon>
+          </button>
+          <mat-hint>Click the eye to toggle visibility</mat-hint>
+        </mat-form-field>
+
+        <mat-form-field fxFlex="grow">
+          <mat-label>Password (Confirm)</mat-label>
+          <input [type]="inputType" formControlName="passwordConfirm" matInput required>
+          <button (click)="toggleVisibility()" mat-icon-button matSuffix matTooltip="Toggle Visibility" type="button">
+            <mat-icon *ngIf="visible" [icIcon]="icVisibility"></mat-icon>
+            <mat-icon *ngIf="!visible" [icIcon]="icVisibilityOff"></mat-icon>
+          </button>
+          <mat-hint>Please repeat your password from above</mat-hint>
+        </mat-form-field>
+      </div>
+
+      <div fxLayout="row" fxLayoutAlign="center center">
+        <mat-checkbox class="caption">I accept the <a>terms and conditions.</a></mat-checkbox>
+      </div>
+      <button (click)="send()" color="primary" mat-raised-button type="button">
+        CREATE ACCOUNT
+      </button>
+      <p class="text-secondary text-center">
+        Already have an account?<br/>
+        <a [routerLink]="['/login']">Sign in here</a>
+      </p>
+    </div>
+  </div>
+</div>

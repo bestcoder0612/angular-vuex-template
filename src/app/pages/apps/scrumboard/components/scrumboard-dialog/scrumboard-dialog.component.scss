@@ -1,0 +1,43 @@
+.members {
+  .avatar {
+    border: 2px solid var(--background-card);
+    box-sizing: border-box;
+    height: 36px;
+    margin-right: -8px;
+    margin-top: var(--padding-4);
+    width: 36px;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}
+
+.labels {
+
+  .label {
+    border-radius: var(--border-radius);
+    font: var(--font-caption);
+    height: 32px;
+    line-height: 32px;
+    margin-top: var(--padding-4);
+    min-width: 32px;
+    padding-left: var(--padding-8);
+    padding-right: var(--padding-8);
+    user-select: none;
+
+    &:last-of-type {
+      padding: 0;
+    }
+  }
+}
+
+.content {
+  max-height: 40vh;
+}
+
+@screen sm {
+  .content {
+    max-height: 50vh;
+  }
+}

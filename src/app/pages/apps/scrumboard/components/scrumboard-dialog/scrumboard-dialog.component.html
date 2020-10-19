@@ -1,0 +1,198 @@
+<form (ngSubmit)="save()" [formGroup]="form">
+  <div class="mb-0 body-1" mat-dialog-title>
+    <div>
+      <h2 class="title m-0" fxLayout="row" fxLayoutAlign="start center">
+        <ic-icon [icon]="icAssignment" class="ltr:mr-1 rtl:ml-1 text-secondary" fxFlex="none" size="24px"></ic-icon>
+        <input [class.empty]="!form.get('title').value"
+               class="hidden-input title bg-card"
+               formControlName="title"
+               fxFlex="auto">
+        <button cdkFocusInitial class="text-secondary" mat-dialog-close mat-icon-button type="button">
+          <mat-icon [icIcon]="icClose"></mat-icon>
+        </button>
+      </h2>
+
+      <div class="body-2 text-secondary ltr:ml-10 rtl:mr-10" fxLayout="row" fxLayoutAlign="start center">
+        <span>{{ board?.label }}</span>
+        <div class="w-1 h-1 mx-2 bg-gray-500 rounded-full"></div>
+        <span>{{ list?.label }}</span>
+      </div>
+    </div>
+
+    <div class="mt-3 ltr:ml-10 rtl:mr-10" fxLayout="row wrap" fxLayoutAlign="space-between start">
+      <div class="members" fxFlex="none">
+        <div class="body-2 text-secondary">MEMBERS</div>
+        <div fxLayout="row" fxLayoutAlign="start center">
+          <img *ngFor="let user of form.get('users').value"
+               [matTooltip]="user.name"
+               [src]="user.imageSrc"
+               class="avatar"
+               fxFlex="none">
+          <div (click)="memberSelect.open()"
+               class="avatar text-secondary bg-app-bar cursor-pointer"
+               fxFlex="none"
+               fxLayout="row"
+               fxLayoutAlign="center center">
+            <ic-icon [icon]="icAdd" size="24px"></ic-icon>
+          </div>
+          <mat-select #memberSelect="matSelect"
+                      class="invisible w-0 h-0 text-sm"
+                      formControlName="users"
+                      fxFlex="0 1 0px"
+                      multiple>
+            <mat-option *ngFor="let user of users" [value]="user">
+              <img [src]="user.imageSrc" class="avatar h-6 w-6 align-middle inline-block ltr:mr-2 rtl:ml-2">
+              <span>{{ user.name }}</span>
+            </mat-option>
+          </mat-select>
+        </div>
+      </div>
+
+      <div class="labels max-w-full" fxFlex="none">
+        <div class="body-2 text-secondary">LABELS</div>
+        <div fxLayout="row wrap" fxLayoutAlign="start center" fxLayoutGap="4px">
+          <div *ngFor="let label of form.get('labels').value"
+               [style.background]="label.background"
+               [style.color]="label.color"
+               class="label"
+               fxFlex="none">
+            {{ label.label }}
+          </div>
+          <div (click)="labelSelect.open()"
+               class="label text-secondary bg-app-bar cursor-pointer mt-1"
+               fxFlex="none"
+               fxLayout="row"
+               fxLayoutAlign="center center">
+            <ic-icon [icon]="icAdd" size="24px"></ic-icon>
+          </div>
+          <mat-select #labelSelect="matSelect"
+                      class="invisible w-0 h-0 text-sm"
+                      formControlName="labels"
+                      fxFlex="0 1 0px"
+                      multiple>
+            <mat-option *ngFor="let label of labels" [value]="label">
+              <div [style.background]="label.background"
+                   class="h-6 w-6 align-middle ltr:mr-2 rtl:ml-2 rounded inline-block"></div>
+              <span>{{ label.label }}</span>
+            </mat-option>
+          </mat-select>
+        </div>
+      </div>
+    </div>
+
+    <mat-divider class="-mx-6 mt-6"></mat-divider>
+  </div>
+
+  <mat-dialog-content class="pb-6 content">
+
+    <h2 class="body-2 font-medium m-0 mt-6 text-secondary" fxLayout="row" fxLayoutAlign="start center">
+      <ic-icon [icon]="icDescription" class="ltr:mr-4 rtl:ml-4" fxFlex="none" size="24px"></ic-icon>
+      <span>DESCRIPTION</span>
+    </h2>
+
+    <div class="ltr:ml-10 rtl:mr-10 mt-3" fxLayout="column">
+      <mat-form-field appearance="outline" class="vex-dense-form-field body-1">
+        <textarea cdkAutosizeMinRows="2"
+                  formControlName="description"
+                  matInput
+                  matTextareaAutosize
+                  placeholder="Add a description ..."></textarea>
+      </mat-form-field>
+    </div>
+
+    <h2 class="body-2 font-medium m-0 text-secondary mt-4" fxLayout="row" fxLayoutAlign="start center">
+      <ic-icon [icon]="icAttachFile" class="ltr:mr-4 rtl:ml-4" fxFlex="none" size="24px"></ic-icon>
+      <span fxFlex="auto">ATTACHMENTS</span>
+      <button color="primary" mat-button type="button">
+        <ic-icon [icon]="icAdd" class="ltr:mr-1 rtl:ml-1 ltr:-ml-1 rtl:-mr-1" inline="true" size="18px"></ic-icon>
+        <span>ADD AN ATTACHMENT</span>
+      </button>
+    </h2>
+
+    <div *ngIf="form.get('attachments').value?.length > 0"
+         class="ltr:ml-10 rtl:mr-10 mt-3"
+         gdColumns="1fr 1fr"
+         gdColumns.xs="1fr"
+         gdGap="16px">
+      <div *ngFor="let attachment of form.get('attachments').value"
+           class="border p-1 rounded"
+           fxLayout="row"
+           fxLayoutAlign="start center">
+
+        <div *ngIf="isImageExtension(attachment.extension)"
+             class="bg-app-bar rounded ltr:mr-3 rtl:ml-3 w-24 h-16 overflow-hidden relative">
+          <img [src]="attachment.path" class="object-cover w-full h-full">
+        </div>
+
+        <div *ngIf="!isImageExtension(attachment.extension)"
+             class="bg-app-bar p-1 rounded ltr:mr-3 rtl:ml-3 w-100 h-16 leading-none body-2"
+             fxLayoutAlign="center center">{{ attachment.extension }}</div>
+
+        <div fxFlex="auto">
+          <h4 class="m-0 body-2 leading-snug text-secondary">{{ attachment.name }}</h4>
+          <p class="m-0 caption leading-snug text-hint">
+            <ic-icon *ngIf="isCover(attachment)" [icon]="icStar" inline="true"></ic-icon>
+            <span>{{ attachment.size }}</span>
+          </p>
+        </div>
+
+        <button [matMenuTriggerData]="{ attachment: attachment }"
+                [matMenuTriggerFor]="attachmentMenu"
+                class="text-secondary ltr:ml-1 rtl:mr-1"
+                mat-icon-button
+                type="button">
+          <mat-icon [icIcon]="icMoreVert"></mat-icon>
+        </button>
+      </div>
+    </div>
+
+    <mat-divider class="-mx-6 mt-6"></mat-divider>
+
+    <h2 class="body-2 m-0 pt-6 text-secondary" fxLayout="row" fxLayoutAlign="start center">
+      <ic-icon [icon]="icInsertComment" class="ltr:mr-4 rtl:ml-4" fxFlex="none" size="24px"></ic-icon>
+      <span fxFlex="auto">COMMENTS</span>
+    </h2>
+
+    <div class="ltr:ml-10 rtl:mr-10 mt-2">
+      <div *ngFor="let comment of form.get('comments').value" class="mt-4">
+        <div fxLayout="row" fxLayoutAlign="start center">
+          <img [src]="comment.from.imageSrc" class="avatar h-8 w-8 ltr:mr-3 rtl:ml-3">
+          <div>
+            <h4 class="body-2 m-0 leading-snug">{{ comment.from.name }}</h4>
+            <h5 class="caption text-secondary m-0 leading-snug">{{ comment.date | relativeDateTime }}</h5>
+          </div>
+        </div>
+
+        <p class="m-0 mt-2 caption text-secondary">{{ comment.message }}</p>
+      </div>
+
+      <div class="mt-6" fxLayout="row" fxLayoutAlign="start center">
+        <img class="avatar w-8 h-8 ltr:mr-3 rtl:ml-3" fxFlex="none" src="assets/img/avatars/1.jpg">
+        <mat-form-field appearance="outline" class="vex-dense-form-field vex-flex-form-field" fxFlex="auto">
+          <input [formControl]="commentCtrl" matInput placeholder="Write a comment ...">
+          <button (click)="addComment()" class="-top-1" color="primary" mat-button matSuffix type="button">SEND</button>
+        </mat-form-field>
+      </div>
+    </div>
+  </mat-dialog-content>
+
+  <mat-dialog-actions align="end">
+    <button mat-button mat-dialog-close type="button">CANCEL</button>
+    <button color="primary" mat-raised-button type="submit">SAVE</button>
+  </mat-dialog-actions>
+</form>
+
+
+<mat-menu #attachmentMenu="matMenu">
+  <ng-template let-attachment="attachment" matMenuContent>
+    <button (click)="makeCover(attachment)" mat-menu-item>
+      <mat-icon [icIcon]="icImage"></mat-icon>
+      <span>Make Cover</span>
+    </button>
+
+    <button (click)="remove(attachment)" mat-menu-item>
+      <mat-icon [icIcon]="icDelete"></mat-icon>
+      <span>Remove</span>
+    </button>
+  </ng-template>
+</mat-menu>

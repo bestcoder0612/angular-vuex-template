@@ -1,0 +1,91 @@
+@import "@angular/material/_theming.scss";
+@import "./partials/_mixins.scss";
+
+$sidenav-background: #1a202e !default;
+
+$config: mat-typography-config(
+  $font-family: var(--font),
+  $display-4: mat-typography-level(112px, 112px, 300, $letter-spacing: -0.05em),
+  $display-3: mat-typography-level(56px, 56px, 400, $letter-spacing: -0.02em),
+  $display-2: mat-typography-level(45px, 48px, 400, $letter-spacing: -0.005em),
+  $display-1: mat-typography-level(34px, 40px, 400),
+  $headline: mat-typography-level(24px, 32px, 400),
+  $title: mat-typography-level(18px, 26px, 500),
+  $subheading-2: mat-typography-level(16px, 28px, 400),
+  $subheading-1: mat-typography-level(15px, 24px, 400),
+  $body-2: mat-typography-level(14px, 24px, 500),
+  $body-1: mat-typography-level(14px, 20px, 400),
+  $caption: mat-typography-level(12px, 20px, 400),
+  $button: mat-typography-level(14px, 14px, 500),
+  $input: mat-typography-level(14px, 1.125, 400)
+) !default;
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+$vex-primary: mat-palette((
+  50: #ecefff,
+  100: #ced7ff,
+  200: #aebcff,
+  300: #8ea1ff,
+  400: #758cff,
+  500: #5c77ff,
+  600: #5570ff,
+  700: #4b65ff,
+  800: #415bff,
+  900: #3048ff,
+  contrast: (
+    50: #000,
+    100: #000,
+    200: #000,
+    300: #000,
+    400: #000,
+    500: #FFF,
+    600: #FFF,
+    700: #FFF,
+    800: #FFF,
+    900: #FFF,
+  )
+)) !default;
+$vex-accent: mat-palette($mat-pink, A200, A100, A400) !default;
+
+// The warn palette is optional (defaults to red).
+$vex-warn: mat-palette($mat-red) !default;
+
+$vex-theme-foreground: (
+  text: black,
+  elevation: $mat-elevation-color,
+  divider: rgba(82, 63, 105, 0.06)
+) !default;
+
+$vex-theme-background: (
+  app-bar: #ebebee
+) !default;
+
+// Create the theme object (a Sass map containing all of the palettes).
+$vex-theme: (
+  primary: $vex-primary,
+  accent: $vex-accent,
+  warn: $vex-warn,
+  is-dark: false,
+  foreground: map_merge($mat-light-theme-foreground, $vex-theme-foreground),
+  background: map_merge($mat-light-theme-background, $vex-theme-background),
+) !default;
+
+$vex-dark-theme-background: (
+  background: lighten($sidenav-background, 5),
+  card: $sidenav-background,
+  app-bar: darken($sidenav-background, 5),
+  dialog: $sidenav-background,
+  status-bar: darken($sidenav-background, 5)
+) !default;
+
+$vex-dark-theme: (
+  primary: $vex-primary,
+  accent: $vex-accent,
+  warn: $vex-warn,
+  is-dark: true,
+  foreground: $mat-dark-theme-foreground,
+  background: map_merge($mat-dark-theme-background, $vex-dark-theme-background),
+) !default;
+

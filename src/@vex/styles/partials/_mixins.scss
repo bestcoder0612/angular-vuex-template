@@ -1,0 +1,15 @@
+$mat-elevation-color: #523f68;
+$mat-elevation-opacity: 0.3;
+
+@function vex-elevation($zValue, $color: $mat-elevation-color, $opacity: $mat-elevation-opacity) {
+  @if type-of($zValue) != number or not unitless($zValue) {
+    @error '$zValue must be a unitless number';
+  }
+  @if $zValue < 0 or $zValue > 24 {
+    @error '$zValue must be between 0 and 24';
+  }
+
+  @return #{map-get(_get-umbra-map($color, $opacity), $zValue)},
+  #{map-get(_get-penumbra-map($color, $opacity), $zValue)},
+  #{map-get(_get-ambient-map($color, $opacity), $zValue)};
+}
