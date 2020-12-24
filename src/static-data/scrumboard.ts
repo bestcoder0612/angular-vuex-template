@@ -7,7 +7,41 @@ import { ScrumboardComment } from '../app/pages/apps/scrumboard/interfaces/scrum
 import theme from '../@vex/utils/tailwindcss';
 
 export const scrumboardAttachments: ScrumboardAttachment[] = [
-  
+  {
+    id: 1,
+    name: 'business-case.jpg',
+    extension: 'jpg',
+    path: 'assets/img/demo/1.jpg',
+    size: '55 KB'
+  },
+  {
+    id: 2,
+    name: 'laptop.jpg',
+    extension: 'jpg',
+    path: 'assets/img/demo/2.jpg',
+    size: '62 KB'
+  },
+  {
+    id: 3,
+    name: 'how-to.jpg',
+    extension: 'jpg',
+    path: 'assets/img/demo/3.jpg',
+    size: '35 KB'
+  },
+  {
+    id: 4,
+    name: 'workplace.jpg',
+    extension: 'jpg',
+    path: 'assets/img/demo/4.jpg',
+    size: '51 KB'
+  },
+  {
+    id: 5,
+    name: 'issue-332.jpg',
+    extension: 'jpg',
+    path: 'assets/img/demo/5.jpg',
+    size: '10 KB'
+  },
   {
     id: 6,
     name: 'notebook-26.jpg',
