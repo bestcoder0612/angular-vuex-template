@@ -8,36 +8,7 @@ export interface Order {
 }
 
 export const tableSalesData: Order[] = [
-  {
-    name: 'Apple iPhone 8',
-    price: '$899.99',
-    status: 'pending',
-    timestamp: DateTime.local().minus({ minutes: 2 }).toRelative()
-  },
-  {
-    name: 'USB-C Cable',
-    price: '$8.99',
-    status: 'ready',
-    timestamp: DateTime.local().minus({ minutes: 6 }).toRelative()
-  },
-  {
-    name: 'Apple MacBook Pro',
-    price: '$1299.99',
-    status: 'ready',
-    timestamp: DateTime.local().minus({ minutes: 14 }).toRelative()
-  },
-  {
-    name: 'Samsung Galaxy S9',
-    price: '$799.99',
-    status: 'ready',
-    timestamp: DateTime.local().minus({ minutes: 17 }).toRelative()
-  },
-  {
-    name: 'Lightning to USB-C Adapter',
-    price: '$16.99',
-    status: 'pending',
-    timestamp: DateTime.local().minus({ minutes: 25 }).toRelative()
-  },
+  
   {
     name: 'Samsung Galaxy S8 256GB',
     price: '$599.99',
