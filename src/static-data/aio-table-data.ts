@@ -25,7 +25,30 @@ export const aioTableLabels = [
 ];
 
 export const aioTableData = [
-  
+  {
+    id: 0,
+    imageSrc: 'assets/img/avatars/20.jpg',
+    firstName: 'Dejesus',
+    lastName: 'Chang',
+    street: '899 Raleigh Place',
+    zipcode: 8057,
+    city: 'Munjor',
+    phoneNumber: '+32 (818) 580-3557',
+    mail: 'dejesus.chang@yourcompany.biz',
+    labels: [aioTableLabels[0], aioTableLabels[1]]
+  },
+  {
+    id: 1,
+    imageSrc: 'assets/img/avatars/1.jpg',
+    firstName: 'Short',
+    lastName: 'Lowe',
+    street: '548 Cypress Avenue',
+    zipcode: 5943,
+    city: 'Temperanceville',
+    phoneNumber: '+11 (977) 574-3636',
+    mail: 'short.lowe@yourcompany.ca',
+    labels: [aioTableLabels[1]]
+  },
   {
     id: 2,
     imageSrc: 'assets/img/avatars/2.jpg',
