@@ -56,40 +56,4 @@ export const chats: Chat[] = [
     unreadCount: 0,
     timestamp: DateTime.local().minus({ day: 1 }).toRelative()
   },
-  {
-    id: 7,
-    imageSrc: 'assets/img/avatars/7.jpg',
-    from: 'James Prealier',
-    status: 'last seen: 43 minutes ago',
-    message: 'No way! I\'m excited to see the progress you did!',
-    unreadCount: 0,
-    timestamp: DateTime.local().minus({ day: 2 }).toRelative()
-  },
-  {
-    id: 8,
-    imageSrc: 'assets/img/avatars/8.jpg',
-    from: 'Victoria Zendia',
-    status: 'Online',
-    message: 'Hope to see you again soon 💋',
-    unreadCount: 0,
-    timestamp: DateTime.local().minus({ day: 2 }).toRelative()
-  },
-  {
-    id: 9,
-    imageSrc: 'assets/img/avatars/9.jpg',
-    from: 'Jonathan Leing',
-    status: 'Online',
-    message: 'Happy Birthday! 🎉🎉🎉',
-    unreadCount: 0,
-    timestamp: DateTime.local().minus({ day: 30 }).toRelative()
-  },
-  {
-    id: 10,
-    imageSrc: 'assets/img/avatars/10.jpg',
-    from: 'Jonathan Leing',
-    status: 'last seen: 1 day ago',
-    message: 'Happy birthday bro 🎉🎉🎉',
-    unreadCount: 0,
-    timestamp: DateTime.local().minus({ day: 30 }).toRelative()
-  }
 ];
