@@ -6,7 +6,36 @@ export interface Color {
 }
 
 export const colors: Color[] = [
-  
+  {
+    label: 'red',
+    backgroundColor: 'bg-red-500',
+    backgroundContrastColor: 'text-contrast-white',
+    textColor: 'text-red-500'
+  },
+  {
+    label: 'green',
+    backgroundColor: 'bg-green-500',
+    backgroundContrastColor: 'text-contrast-white',
+    textColor: 'text-green-500'
+  },
+  {
+    label: 'amber',
+    backgroundColor: 'bg-amber-500',
+    backgroundContrastColor: 'text-contrast-black',
+    textColor: 'text-amber-500'
+  },
+  {
+    label: 'orange',
+    backgroundColor: 'bg-orange-500',
+    backgroundContrastColor: 'text-contrast-black',
+    textColor: 'text-orange-500'
+  },
+  {
+    label: 'deep-orange',
+    backgroundColor: 'bg-deep-orange-500',
+    backgroundContrastColor: 'text-contrast-white',
+    textColor: 'text-deep-orange-500'
+  },
   {
     label: 'purple',
     backgroundColor: 'bg-purple-500',
