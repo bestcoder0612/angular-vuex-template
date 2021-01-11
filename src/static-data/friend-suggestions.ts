@@ -2,6 +2,24 @@ import { FriendSuggestion } from '../app/pages/pages/profile/profile.component';
 
 export const friendSuggestions: FriendSuggestion[] = [
   {
+    name: 'Fannie Wilson',
+    imageSrc: 'assets/img/avatars/1.jpg',
+    friends: 6,
+    added: false
+  },
+  {
+    name: 'Priscilla Ayala',
+    imageSrc: 'assets/img/avatars/2.jpg',
+    friends: 3,
+    added: false
+  },
+  {
+    name: 'Margaret Farley',
+    imageSrc: 'assets/img/avatars/3.jpg',
+    friends: 3,
+    added: true
+  },
+  {
     name: 'Alston Tucker',
     imageSrc: 'assets/img/avatars/4.jpg',
     friends: 1,
